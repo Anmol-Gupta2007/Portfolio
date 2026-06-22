@@ -246,34 +246,29 @@
     margin-bottom:35px;
 }
 
-/* Smooth scrolling */
-html {
-scroll-behavior: smooth;
-}
 
-/* Education section */
-.edu-card {
+   .edu-card {
 background: #374151;
-border-radius: 18px;
+border-radius: 16px;
 margin-bottom: 18px;
-overflow: hidden;
 border: 1px solid #4b5563;
+overflow: hidden;
 }
-
 .edu-card summary {
 list-style: none;
 cursor: pointer;
-padding: 16px 20px;
+padding: 18px 22px;
+}
+.edu-card summary::-webkit-details-marker {
+display: none;
+}
+.edu-header {
 display: flex;
 align-items: center;
 gap: 15px;
-font-size: 1.05rem;
+font-size: 1.1rem;
 font-weight: 600;
 color: white;
-}
-
-.edu-card summary::-webkit-details-marker {
-display: none;
 }
 .edu-logo {
 width: 50px;
@@ -281,13 +276,21 @@ height: 50px;
 border-radius: 12px;
 object-fit: cover;
 background: white;
+padding: 4px;
 }
-
 .edu-content {
-padding: 0 20px 20px 85px;
+padding: 0 22px 22px;
 color: #d1d5db;
 line-height: 1.8;
 }
+.edu-card[open] {
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+html {
+scroll-behavior: smooth;
+}
+    
+    
     
 @media (max-width: 800px) {
       .hero-grid {
@@ -361,39 +364,7 @@ line-height: 1.8;
 <img src="photo.png" alt="Anmol Gupta" class="profile-img">      </div>
     </section>
 
-    <!--
-<section id="education">
-<div class="container">
-<h2 class="section-title">Education</h2>
-<details class="edu-card">
-<summary>
-<img src="geu-logo.png" alt="GEU Logo" class="edu-logo">
-Graphic Era Deemed University
-</summary>
-<div class="edu-content">
-<p><strong>Degree:</strong> B.Tech in Computer Science Engineering</p>
-<p><strong>Duration:</strong> 2025 - 2029</p>
-<p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-<p>
-Pursuing undergraduate studies with focus on programming,
-data structures, algorithms, AI, and web development.
-</p>
-</div>
-</details>
-<details class="edu-card">
-<summary>
-<img src="school-logo.png" alt="School Logo" class="edu-logo">
-Your School Name
-</summary>
-<div class="edu-content">
-<p><strong>Qualification:</strong> Class 12 (PCM)</p>
-<p><strong>Board:</strong> CBSE</p>
-<p><strong>Year:</strong> 2025</p>
-</div>
-</details>
-</div>
-</section>
-    -->
+   
 
 
 <section id="education">
