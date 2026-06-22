@@ -61,11 +61,11 @@
     }
 
     .logo {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-    }
-
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 1px;
+}
     .nav-links {
       display: flex;
       gap: 18px;
@@ -99,14 +99,20 @@
       margin-bottom: 16px;
     }
 
-    .hero p {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 650px;
-      margin-bottom: 24px;
-    }
-
-    .buttons {
+.hero p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin-bottom: 24px;
+  text-align: justify;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+}
+.card p{
+    text-align: justify;
+    line-height: 1.8;
+}
+  .buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
@@ -131,14 +137,14 @@
       background: transparent;
     }
 
-    .profile-card {
-      background: rgba(17, 24, 39, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-    }
-
+    .profile-card{
+    background: rgba(17,24,39,.95);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
     .profile-card h3 {
       margin-bottom: 10px;
     }
@@ -210,7 +216,27 @@
       border-top: 1px solid var(--border);
       margin-top: 30px;
     }
+.profile-img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:0 auto 20px;
+    border:4px solid var(--accent);
+}
+.hero{
+    padding:100px 0;
+}
 
+.hero h2{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    margin-bottom:35px;
+}
     @media (max-width: 800px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -241,7 +267,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <h1>Headline</h1>
+          <h2>Headline</h2>
           <p>
             Google Student Ambassador 26 | AI Enthusiast | GEU B.Tech CSE'29 | Java | Python | SQL 
             | C | DSA | Tech Learner - Learning, Building, Evolving | Aspiring Web Developer | 
@@ -253,7 +279,7 @@
             Dehradun, currently pursuing a B.Tech in CSE. Passionate about technology and innovation, 
             with a strong foundation in programming, algorithms, and software development. Served as 
             an NSS member, contributing to community initiatives while developing leadership and teamwork skills.
-
+            <br><br>
             Eager to apply academic knowledge to real-world problems, especially in areas like AI, 
             web development, and data structures. Committed to continuous learning and professional
             growth, and seeking opportunities to contribute to impactful software development and IT projects.
@@ -265,14 +291,9 @@
         </div>
 
         <div class="profile-card">
-          <h3>Profile</h3>
-          <ul>
-            <li><strong>Name:</strong> Anmol Gupta</li>
-            <li><strong>Location:</strong> Dehradun, Uttarakhand, India</li>
-            <li><strong>Focus:</strong> C, embedded systems, web basics</li>
-            <li><strong>Interests:</strong> GitHub, coding practice, project building</li>
-          </ul>
-        </div>
+          <img src="images/profile.jpg"
+         alt="Anmol Gupta"
+        class="profile-img">
       </div>
     </section>
 
