@@ -1,54 +1,226 @@
-<a href="index.html">← Back to Portfolio</a>
-<h1>Internships</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internships | Anmol Gupta</title>
 
-<details>
-    <summary>CodeAlpha</summary>
+<style>
 
-    <details>
-        <summary>C Programming</summary>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg,#020617,#0f172a);
+    color:#e5e7eb;
+    margin:0;
+    padding:0;
+}
 
-        <h3>I Am Doing Projects</h3>
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+    padding:40px 0;
+}
 
-        <p>
-            Working on C Programming projects involving
-            arrays, strings, pointers, structures,
-            file handling and problem solving.
-        </p>
+.back-btn{
+    display:inline-block;
+    margin-bottom:25px;
+    color:#38bdf8;
+    text-decoration:none;
+    font-weight:600;
+}
 
-        <h3>Offer Letter</h3>
+.back-btn:hover{
+    color:white;
+}
 
-        <img src="c-offer-letter.jpg" width="500">
+.page-title{
+    font-size:2.5rem;
+    margin-bottom:25px;
+}
 
-        <h3>Skills Gained</h3>
+.internship-card{
+    background:#374151;
+    border:1px solid #4b5563;
+    border-radius:18px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
 
-        <p>
-            C Programming, Problem Solving,
-            Debugging, Data Structures
-        </p>
+.internship-card summary{
+    cursor:pointer;
+    list-style:none;
+    padding:20px;
+}
 
-    </details>
+.internship-card summary::-webkit-details-marker{
+    display:none;
+}
 
-    <details>
-        <summary>Python Programming</summary>
+.header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
 
-        <h3>I Am Doing Projects</h3>
+.logo{
+    width:60px;
+    height:60px;
+    border-radius:12px;
+    background:white;
+    object-fit:cover;
+    padding:4px;
+}
 
-        <p>
-            Working on Python Programming projects involving
-            automation, scripting, and data analysis.
-        </p>
+.header span{
+    font-size:1.4rem;
+    font-weight:700;
+}
 
-        <h3>Offer Letter</h3>
+.content{
+    padding:0 25px 25px;
+    color:#d1d5db;
+    line-height:1.9;
+}
 
-        <img src="python-offer-letter.jpg" width="500">
+.project-card{
+    background:#1f2937;
+    border-radius:14px;
+    margin-top:15px;
+    border:1px solid #374151;
+}
 
-        <h3>Skills Gained</h3>
+.project-card summary{
+    padding:16px;
+    font-weight:600;
+    cursor:pointer;
+}
 
-        <p>
-            Python Programming, Automation,
-            Debugging, Data Analysis
-        </p>
+.project-content{
+    padding:20px;
+}
 
-    </details>
+.project-title{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.offer-letter{
+    width:100%;
+    max-width:700px;
+    border-radius:12px;
+    border:3px solid #38bdf8;
+    margin-top:15px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+.skill{
+    background:rgba(56,189,248,0.12);
+    color:#7dd3fc;
+    border:1px solid rgba(56,189,248,0.35);
+    padding:8px 14px;
+    border-radius:999px;
+}
+
+h3{
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back-btn">
+← Back to Portfolio
+</a>
+
+<h1 class="page-title">Internships</h1>
+
+<details class="internship-card">
+
+<summary>
+<div class="header">
+<img src="codealpha.png" class="logo">
+<span>CodeAlpha</span>
+</div>
+</summary>
+
+<div class="content">
+
+<details class="project-card">
+
+<summary>C Programming</summary>
+
+<div class="project-content">
+
+<h2 class="project-title">I Am Doing Projects</h2>
+
+<p>
+Working on C Programming projects involving arrays,
+strings, pointers, structures, file handling and
+problem solving.
+</p>
+
+<h3>Offer Letter</h3>
+
+<img src="c-offer-letter.jpg"
+     class="offer-letter">
+
+<h3>Skills Gained</h3>
+
+<div class="skills">
+<span class="skill">C Programming</span>
+<span class="skill">Problem Solving</span>
+<span class="skill">Debugging</span>
+<span class="skill">Data Structures</span>
+</div>
+
+</div>
+</details>
+
+<details class="project-card">
+
+<summary>Python Programming</summary>
+
+<div class="project-content">
+
+<h2 class="project-title">I Am Doing Projects</h2>
+
+<p>
+Working on Python Programming projects involving
+automation, scripting, debugging and data analysis.
+</p>
+
+<h3>Offer Letter</h3>
+
+<img src="python-offer-letter.jpg"
+     class="offer-letter">
+
+<h3>Skills Gained</h3>
+
+<div class="skills">
+<span class="skill">Python</span>
+<span class="skill">Automation</span>
+<span class="skill">Data Analysis</span>
+<span class="skill">Debugging</span>
+</div>
+
+</div>
+</details>
+
+</div>
 
 </details>
+
+</div>
+
+</body>
+</html>
