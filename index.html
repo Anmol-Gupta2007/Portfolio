@@ -253,10 +253,52 @@
     margin: 0 auto;
 }
 
+.exp-box{
+    background:#374151;
+    border-radius:16px;
+    padding:25px;
+    text-decoration:none;
+    color:white;
+    border:1px solid #4b5563;
+    transition:0.3s;
+}
+
+.exp-box:hover{
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}    
+    
 .profile-img:hover {
     transform: scale(1.03);
 }
 
+    .internship-card{
+    background:#374151;
+    border-radius:16px;
+    margin-bottom:20px;
+}
+
+.timeline{
+    margin-left:30px;
+    border-left:4px solid #9ca3af;
+    padding-left:30px;
+}
+
+.project-card{
+    margin:20px 0;
+}
+
+.project-card summary{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.offer-letter{
+    max-width:500px;
+    width:100%;
+    border-radius:10px;
+    margin:15px 0;
+}
     
 .hero{
     padding:100px 0;
@@ -484,6 +526,101 @@ html {
   
 </div>
 </section>
+
+<section id="experience">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <!-- Internship Section -->
+        <details class="edu-card">
+            <summary>
+                <div class="edu-header">
+                    <img src="codealpha.png" alt="CodeAlpha" class="edu-logo">
+                    <span>Internships</span>
+                </div>
+            </summary>
+            <div class="edu-content">
+                <!-- Company -->
+                <details class="edu-card">
+                    <summary>
+                        <div class="edu-header">
+                            <img src="codealpha.png" alt="CodeAlpha" class="edu-logo">
+                            <span>CodeAlpha</span>
+                        </div>
+                    </summary>
+                    <div class="edu-content">
+                        <!-- C Programming -->
+                        <details class="edu-card">
+                            <summary>
+                                <span>📌 C Programming</span>
+                            </summary>
+                            <div class="edu-content">
+                                <h3>I Am Doing Projects</h3>
+                                <p>
+                                    Working on C Programming projects involving
+                                    arrays, strings, pointers, structures,
+                                    file handling, debugging, and problem solving.
+                                </p>
+                                <br>
+                                <h3>Offer Letter</h3>
+                                <img src="c-offer-letter.jpg"
+                                     alt="Offer Letter"
+                                     style="width:100%;max-width:500px;border-radius:10px;">
+                                <br><br>
+                                <h3>Skills Gained</h3>
+                                <p>
+                                    C Programming, Problem Solving,
+                                    Debugging, Data Structures,
+                                    Logical Thinking, Programming Fundamentals.
+                                </p>
+                            </div>
+                        </details>
+                        <!-- Python Programming -->
+                        <details class="edu-card">
+                            <summary>
+                                <span>📌 Python Programming</span>
+                            </summary>
+                            <div class="edu-content">
+                                <h3>I Am Doing Projects</h3>
+                                <p>
+                                    Working on Python Programming projects involving
+                                    automation, scripting, data analysis,
+                                    debugging, and problem solving.
+                                </p>
+                                <br>
+                                <h3>Offer Letter</h3>
+                                <img src="python-offer-letter.jpg"
+                                     alt="Offer Letter"
+                                     style="width:100%;max-width:500px;border-radius:10px;">
+                                <br><br>
+                                <h3>Skills Gained</h3>
+                                <p>
+                                    Python Programming, Automation,
+                                    Debugging, Data Analysis,
+                                    Problem Solving, Logical Thinking.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+            </div>
+        </details>
+        <!-- Part Time -->
+        <details class="edu-card">
+            <summary>
+                <div class="edu-header">
+                    <img src="work.png" alt="Part Time" class="edu-logo">
+                    <span>Part Time</span>
+                </div>
+            </summary>
+            <div class="edu-content">
+                <p>
+                    Add your future part-time work experience here.
+                </p>
+            </div>
+        </details>
+    </div>
+</section>
+
     
    
     <section id="skills">
