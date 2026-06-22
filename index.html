@@ -217,6 +217,44 @@
       margin-top: 30px;
     }
 
+.edu-content p{
+    text-align: justify;
+    line-height: 1.9;
+}
+
+.edu-content{
+    text-align: justify;
+}
+
+    <script>
+document.querySelectorAll('.edu-card').forEach((detail) => {
+    detail.addEventListener('toggle', function () {
+        if (this.open) {
+            document.querySelectorAll('.edu-card').forEach((item) => {
+                if (item !== this) {
+                    item.removeAttribute('open');
+                }
+            });
+        }
+    });
+});
+</script>
+
+.edu-content{
+    overflow: hidden;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
     
 .profile-img {
     width: 100%;
