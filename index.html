@@ -226,20 +226,7 @@
     text-align: justify;
 }
 
-    <script>
-document.querySelectorAll('.edu-card').forEach((detail) => {
-    detail.addEventListener('toggle', function () {
-        if (this.open) {
-            document.querySelectorAll('.edu-card').forEach((item) => {
-                if (item !== this) {
-                    item.removeAttribute('open');
-                }
-            });
-        }
-    });
-});
-</script>
-
+  
 .edu-content{
     overflow: hidden;
     animation: slideDown 0.3s ease;
@@ -328,7 +315,13 @@ html {
 scroll-behavior: smooth;
 }
     
-    
+html {
+    scroll-behavior: smooth;
+}
+
+:target {
+    scroll-margin-top: 100px;
+}
     
 @media (max-width: 800px) {
       .hero-grid {
@@ -359,6 +352,12 @@ scroll-behavior: smooth;
     </div>
   </header>
 
+
+
+
+
+
+  
   <main>
 <section class="hero" id="about">
     <div class="container hero-grid">
@@ -403,8 +402,6 @@ scroll-behavior: smooth;
     </section>
 
    
-
-
 <section id="education">
 <div class="container">
 <h2 class="section-title">Education</h2>
@@ -471,7 +468,7 @@ scroll-behavior: smooth;
 
     <div class="edu-content">
         <p><strong>Class:</strong> 10th Standard</p>
-        <p><strong>Board:</strong> CBSE</p>
+        <p><strong>Board:</strong> ICSE</p>
         <p><strong>Year:</strong> 2022 - 2023</p>
         <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
       <br>
@@ -564,9 +561,23 @@ scroll-behavior: smooth;
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2026 Anmol Gupta. All rights reserved.</p>
-    </div>
-  </footer>
+  <div class="container">
+    <p>© 2026 Anmol Gupta. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.edu-card').forEach((detail) => {
+    detail.addEventListener('toggle', function () {
+        if (this.open) {
+            document.querySelectorAll('.edu-card').forEach((item) => {
+                if (item !== this) {
+                    item.removeAttribute('open');
+                }
+            });
+        }
+    });
+});
+</script>
 </body>
 </html>
