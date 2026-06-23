@@ -6,131 +6,146 @@
 <title>Internships | Anmol Gupta</title>
 
 <style>
-
-body{
+body {
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg,#020617,#0f172a);
-    color:#e5e7eb;
-    margin:0;
-    padding:0;
+    color: #e5e7eb;
+    margin: 0;
+    padding: 0;
 }
 
-.container{
-    width:min(1100px,92%);
-    margin:auto;
-    padding:40px 0;
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 40px 0;
 }
 
-.back-btn{
-    display:inline-block;
-    margin-bottom:25px;
-    color:#38bdf8;
-    text-decoration:none;
-    font-weight:600;
+.back-btn {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.back-btn:hover{
-    color:white;
+.back-btn:hover {
+    color: white;
 }
 
-.page-title{
-    font-size:2.5rem;
-    margin-bottom:25px;
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
 }
 
-.internship-card{
-    background:#374151;
-    border:1px solid #4b5563;
-    border-radius:18px;
-    margin-bottom:20px;
-    overflow:hidden;
+.internship-card {
+    background: #374151;
+    border: 1px solid #4b5563;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
-.internship-card summary{
-    cursor:pointer;
-    list-style:none;
-    padding:20px;
+.internship-card summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 20px;
 }
 
-.internship-card summary::-webkit-details-marker{
-    display:none;
+.internship-card summary::-webkit-details-marker {
+    display: none;
 }
 
-.header{
-    display:flex;
-    align-items:center;
-    gap:15px;
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.logo{
-    width:60px;
-    height:60px;
-    border-radius:12px;
-    background:white;
-    object-fit:cover;
-    padding:4px;
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: white;
+    object-fit: cover;
+    padding: 4px;
 }
 
-.header span{
-    font-size:1.4rem;
-    font-weight:700;
+.header span {
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
-.content{
-    padding:0 25px 25px;
-    color:#d1d5db;
-    line-height:1.9;
+.content {
+    padding: 0 25px 25px;
+    color: #d1d5db;
+    line-height: 1.9;
 }
 
-.project-card{
-    background:#1f2937;
-    border-radius:14px;
-    margin-top:15px;
-    border:1px solid #374151;
+.project-card {
+    background: #1f2937;
+    border-radius: 14px;
+    margin-top: 15px;
+    border: 1px solid #374151;
 }
 
-.project-card summary{
-    padding:16px;
-    font-weight:600;
-    cursor:pointer;
+.project-card summary {
+    padding: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.6rem;
 }
 
-.project-content{
-    padding:20px;
+.project-content {
+    padding: 20px;
 }
 
-.project-title{
-    color:#38bdf8;
-    margin-bottom:15px;
+.project-title {
+    color: #38bdf8;
+    margin-bottom: 15px;
 }
 
-.offer-letter{
-    width:100%;
-    max-width:700px;
-    border-radius:12px;
-    border:3px solid #38bdf8;
-    margin-top:15px;
+.offer-letter {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    border: 3px solid #38bdf8;
+    margin-top: 15px;
 }
 
-.skills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:15px;
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-.skill{
-    background:rgba(56,189,248,0.12);
-    color:#7dd3fc;
-    border:1px solid rgba(56,189,248,0.35);
-    padding:8px 14px;
-    border-radius:999px;
+.skill {
+    background: rgba(56,189,248,0.12);
+    color: #7dd3fc;
+    border: 1px solid rgba(56,189,248,0.35);
+    padding: 8px 14px;
+    border-radius: 999px;
 }
 
-h3{
-    margin-top:20px;
+h3 {
+    margin-top: 20px;
 }
 
+/* CSS for the blinking cursor during typing */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 0.8s step-end infinite;
+    color: #38bdf8;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Give the description a minimum height so the page doesn't jump too much while typing */
+.description {
+    min-height: 50px; 
+}
 </style>
 </head>
 
@@ -138,91 +153,124 @@ h3{
 
 <div class="container">
 
-<a href="index.html" class="back-btn">
-← Back to Portfolio
-</a>
+<a href="index.html" class="back-btn">← Back to Portfolio</a>
 
 <h1 class="page-title">Internships</h1>
 
 <details class="internship-card">
+    <summary>
+        <div class="header">
+            <img src="codealpha.jpeg" class="logo" alt="CodeAlpha Logo">
+            <span>CodeAlpha</span>
+        </div>
+    </summary>
 
-<summary>
-<div class="header">
-<img src="codealpha.jpeg" class="logo" alt="CodeAlpha Logo">
-<span>CodeAlpha</span>
-</div>
-</summary>
+    <div class="content">
 
-<div class="content">
+        <details class="project-card" id="c-programming">
+            <summary>C Programming</summary>
+            <div class="project-content">
+                <p class="description">
+                    Working on C Programming projects involving arrays, strings, pointers, structures, file handling and problem solving.
+                </p>
 
-<details class="project-card">
+                <h3>Offer Letter</h3>
+                <iframe
+                    src="Offer Letter C Programming Internship.pdf"
+                    width="100%"
+                    height="700"
+                    style="border:3px solid #38bdf8; border-radius:12px;">
+                </iframe>
 
-<summary>C Programming</summary>
-<div class="project-content">
-<p>
-Working on C Programming projects involving arrays,
-strings, pointers, structures, file handling and
-problem solving.
-</p>
+                <h3>Skills Gained</h3>
+                <div class="skills">
+                    <span class="skill">C Programming</span>
+                    <span class="skill">Problem Solving</span>
+                    <span class="skill">Debugging</span>
+                    <span class="skill">Data Structures</span>
+                </div>
+            </div>
+        </details>
 
-<h3>Offer Letter</h3>
+        <details class="project-card">
+            <summary>Python Programming</summary>
+            <div class="project-content">
+                <p class="description">
+                    Working on Python Programming projects involving automation, scripting, debugging and data analysis.
+                </p>
 
-<iframe
-    src="Offer Letter C Programming Internship.pdf"
-    width="100%"
-    height="700"
-    style="border:3px solid #38bdf8; border-radius:12px;">
-</iframe>
+                <h3>Offer Letter</h3>
+                <iframe
+                    src="Offer Letter Python Programming Internship.pdf"
+                    width="100%"
+                    height="700"
+                    style="border:3px solid #38bdf8; border-radius:12px;">
+                </iframe>
 
-<h3>Skills Gained</h3>
+                <h3>Skills Gained</h3>
+                <div class="skills">
+                    <span class="skill">Python</span>
+                    <span class="skill">Automation</span>
+                    <span class="skill">Data Analysis</span>
+                    <span class="skill">Debugging</span>
+                </div>
+            </div>
+        </details>
 
-<div class="skills">
-<span class="skill">C Programming</span>
-<span class="skill">Problem Solving</span>
-<span class="skill">Debugging</span>
-<span class="skill">Data Structures</span>
-</div>
-
-</div>
-</details>
-
-<details class="project-card">
-
-<summary>Python Programming</summary>
-
-<div class="project-content">
-
-<p>
-Working on Python Programming projects involving
-automation, scripting, debugging and data analysis.
-</p>
-
-<h3>Offer Letter</h3>
-
-<iframe
-    src="Offer Letter Python Programming Internship.pdf"
-    width="100%"
-    height="700"
-    style="border:3px solid #38bdf8; border-radius:12px;">
-</iframe>
-
-<h3>Skills Gained</h3>
-
-<div class="skills">
-<span class="skill">Python</span>
-<span class="skill">Automation</span>
-<span class="skill">Data Analysis</span>
-<span class="skill">Debugging</span>
-</div>
-
-</div>
+    </div>
 </details>
 
 </div>
 
-</details>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Find all the inner project cards (C and Python)
+        const projectCards = document.querySelectorAll('.project-card');
 
-</div>
+        projectCards.forEach(card => {
+            // Find the description paragraph inside the card
+            const descPara = card.querySelector('.description');
+
+            if (descPara) {
+                // 1. Save the original text and clear it out immediately
+                // We use replace to remove extra whitespace and line breaks from HTML formatting
+                const originalText = descPara.textContent.replace(/\s+/g, ' ').trim();
+                descPara.dataset.text = originalText;
+                descPara.textContent = '';
+
+                // 2. Listen for the card opening or closing
+                card.addEventListener('toggle', function() {
+                    
+                    // Clear any running interval so it doesn't glitch if toggled fast
+                    if (this.typingInterval) clearInterval(this.typingInterval);
+
+                    if (this.open) {
+                        // Add the cursor class and start typing
+                        descPara.classList.add('typing-cursor');
+                        descPara.textContent = ''; 
+                        let i = 0;
+
+                        this.typingInterval = setInterval(() => {
+                            if (i < originalText.length) {
+                                descPara.textContent += originalText.charAt(i);
+                                i++;
+                            } else {
+                                // Done typing, stop the timer and remove the cursor
+                                clearInterval(this.typingInterval);
+                                descPara.classList.remove('typing-cursor');
+                            }
+                        }, 25); // Speed: 25 milliseconds per character (lower is faster)
+                        
+                    } else {
+                        // If the user closes the section, clear the text so it can re-type next time
+                        descPara.textContent = '';
+                        descPara.classList.remove('typing-cursor');
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
