@@ -66,8 +66,9 @@ body {
     height: 60px;
     border-radius: 12px;
     background: white;
-    object-fit: cover;
+    object-fit: contain; /* Changed to contain so the logo is fully visible */
     padding: 4px;
+    box-sizing: border-box; /* Ensures padding stays inside the 60px size */
 }
 
 .header span {
@@ -92,7 +93,7 @@ body {
     padding: 16px;
     font-weight: 600;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .project-content {
@@ -131,7 +132,6 @@ h3 {
     margin-top: 20px;
 }
 
-/* CSS for the blinking cursor during typing */
 .typing-cursor::after {
     content: '|';
     animation: blink 0.8s step-end infinite;
@@ -142,7 +142,6 @@ h3 {
     50% { opacity: 0; }
 }
 
-/* Give the description a minimum height so the page doesn't jump too much while typing */
 .description {
     min-height: 50px; 
 }
@@ -224,28 +223,29 @@ h3 {
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Find all the inner project cards (C and Python)
         const projectCards = document.querySelectorAll('.project-card');
 
         projectCards.forEach(card => {
-            // Find the description paragraph inside the card
             const descPara = card.querySelector('.description');
 
             if (descPara) {
-                // 1. Save the original text and clear it out immediately
-                // We use replace to remove extra whitespace and line breaks from HTML formatting
                 const originalText = descPara.textContent.replace(/\s+/g, ' ').trim();
                 descPara.dataset.text = originalText;
                 descPara.textContent = '';
 
-                // 2. Listen for the card opening or closing
                 card.addEventListener('toggle', function() {
                     
-                    // Clear any running interval so it doesn't glitch if toggled fast
                     if (this.typingInterval) clearInterval(this.typingInterval);
 
                     if (this.open) {
-                        // Add the cursor class and start typing
+                        
+                        // NEW LOGIC: Close any other open project cards
+                        projectCards.forEach(otherCard => {
+                            if (otherCard !== this && otherCard.open) {
+                                otherCard.removeAttribute('open');
+                            }
+                        });
+
                         descPara.classList.add('typing-cursor');
                         descPara.textContent = ''; 
                         let i = 0;
@@ -255,14 +255,12 @@ h3 {
                                 descPara.textContent += originalText.charAt(i);
                                 i++;
                             } else {
-                                // Done typing, stop the timer and remove the cursor
                                 clearInterval(this.typingInterval);
                                 descPara.classList.remove('typing-cursor');
                             }
-                        }, 25); // Speed: 25 milliseconds per character (lower is faster)
+                        }, 25); 
                         
                     } else {
-                        // If the user closes the section, clear the text so it can re-type next time
                         descPara.textContent = '';
                         descPara.classList.remove('typing-cursor');
                     }
