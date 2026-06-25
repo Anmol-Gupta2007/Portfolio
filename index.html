@@ -110,7 +110,6 @@
       letter-spacing: 0.3px;
     }
 
-    /* Added spacing for the About headline */
     .hero-content h2 {
       margin-bottom: 25px;
       font-size: 2.2rem;
@@ -137,7 +136,6 @@
       transition: 0.3s ease;
     }
 
-    /* New Button Styles */
     .btn.primary {
       background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       color: #020617;
@@ -145,6 +143,7 @@
       padding: 12px 28px;
       box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
+    
     .btn.primary:hover {
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
       text-decoration: none;
@@ -157,6 +156,7 @@
       background: rgba(255,255,255,0.03);
       color: white;
     }
+    
     .btn.secondary:hover {
       background: rgba(255,255,255,0.08);
       text-decoration: none;
@@ -250,68 +250,102 @@
       margin-top: 30px;
     }
 
-    .edu-content p {
-      text-align: justify;
-      line-height: 1.9;
-    }
-
-    .edu-content {
-      text-align: justify;
-      overflow: hidden;
-      animation: slideDown 0.3s ease;
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
+    /* --- NEW EDUCATION CARD STYLES --- */
     .edu-card {
-      background: #374151;
+      position: relative;
+      background: rgba(17, 24, 39, 0.92); /* Darker matching theme */
       border-radius: 16px;
       margin-bottom: 18px;
-      border: 1px solid #4b5563;
+      border: 1px solid var(--border);
       overflow: hidden;
       transition: 0.3s;
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #00f2fe, #4facfe); /* Cyan to blue glowing line */
+      opacity: 0;
+      transition: 0.3s ease;
     }
     
     .edu-card summary {
       list-style: none;
       cursor: pointer;
-      padding: 18px 22px;
+      padding: 24px;
     }
     
     .edu-card summary::-webkit-details-marker {
       display: none;
     }
+
+    .edu-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+    }
     
-    .edu-header {
+    .edu-school-wrap {
       display: flex;
       align-items: center;
-      gap: 15px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: white;
+      gap: 10px;
+      margin-bottom: 10px;
     }
-    
+
     .edu-logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
       object-fit: cover;
       background: white;
-      padding: 4px;
+      padding: 2px;
     }
-    
+
+    .edu-school-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #00e5ff; /* Cyan color from screenshot */
+    }
+
+    .edu-meta {
+      font-size: 0.95rem;
+      color: #6b7280; /* Subtle grey matching the reference image */
+      font-family: monospace;
+      letter-spacing: 0.5px;
+    }
+
     .edu-content {
-      padding: 0 22px 22px;
+      padding: 0 24px 24px;
       color: #d1d5db;
       line-height: 1.8;
+      text-align: justify;
+      border-top: 1px solid transparent;
+      overflow: hidden;
+      animation: slideDown 0.3s ease;
     }
     
     .edu-card[open] {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      border-color: #38bdf8;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-color: #38bdf8; /* Blue border on open */
+    }
+
+    .edu-card[open]::before {
+      opacity: 1; /* Shows the top blue line */
+    }
+
+    .edu-card[open] .edu-content {
+      border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divider line separating header from content */
+      padding-top: 20px;
+    }
+    
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     html {
@@ -322,7 +356,6 @@
       scroll-margin-top: 100px;
     }
 
-    /* --- NEW HERO SECTION STYLES --- */
     .hero-name {
       font-size: clamp(3.5rem, 8vw, 6.5rem);
       font-weight: 900;
@@ -366,7 +399,6 @@
       50% { opacity: 0; }
     }
 
-    /* Stats Box */
     .stats-box {
       display: flex;
       background: rgba(17, 24, 39, 0.6);
@@ -378,7 +410,6 @@
       justify-content: space-evenly;
     }
     
-    /* Updated to center align content */
     .stat-item {
       display: flex;
       flex-direction: column;
@@ -408,7 +439,6 @@
       text-transform: uppercase;
     }
 
-    /* Rotating AG Circle */
     .circle-wrapper {
       display: flex;
       justify-content: center;
@@ -417,7 +447,7 @@
       width: 100%;
       height: 100%;
       min-height: 400px;
-      margin-top: -50px; /* Moved the circle up a bit */
+      margin-top: -50px; 
     }
     
     .rotating-ring {
@@ -466,14 +496,13 @@
       letter-spacing: -2px;
     }
 
-    /* Added Profile Image Styles for border and right alignment */
     .profile-img {
       width: 100%;
       max-width: 320px;
       height: auto;
       border-radius: 16px;
       border: 4px solid var(--accent);
-      justify-self: end; /* Pushes the image to the right side of the grid cell */
+      justify-self: end; 
       box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
     }
 
@@ -521,7 +550,7 @@
       .inner-circle h2 { font-size: 5rem; }
       
       .profile-img {
-        justify-self: center; /* Centers image on mobile */
+        justify-self: center; 
         margin-top: 30px;
       }
     }
@@ -596,8 +625,8 @@
       </div>
     </section>
 
-<section class="hero" id="about">
-    <div class="container hero-grid">
+    <section class="hero" id="about">
+      <div class="container hero-grid">
 
         <div class="hero-content">
           
@@ -626,16 +655,14 @@
         
         <details class="edu-card">
           <summary>
-            <div class="edu-header">
+            <div class="edu-title">B.Tech — Computer Science Engineering</div>
+            <div class="edu-school-wrap">
               <img src="Image/geu.jpeg" alt="GEU Logo" class="edu-logo">
-              <span>Graphic Era Deemed University</span>
+              <span class="edu-school-name">Graphic Era Deemed University</span>
             </div>
+            <div class="edu-meta">Duration: 2025 - 2029 | Location: Dehradun, Uttarakhand</div>
           </summary>
           <div class="edu-content">
-            <p><strong>Degree:</strong> B.Tech in Computer Science Engineering</p>
-            <p><strong>Duration:</strong> 2025 - 2029</p>
-            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-            <br>
             <p><strong>Profile Summary: </strong>Serving as the Class Representative (CR), where I develop leadership, 
               communication, and team management skills. Actively involved in the National Service Scheme (NSS),
               which helped me in contributing to community service and social initiatives. Passionate about 
@@ -653,17 +680,14 @@
         
         <details class="edu-card">
           <summary>
-            <div class="edu-header">
+            <div class="edu-title">Class 12th — Science (CBSE)</div>
+            <div class="edu-school-wrap">
               <img src="Image/kv.jpg" alt="School Logo" class="edu-logo">
-              <span>Kendriya Vidhalaya ONGC</span>
+              <span class="edu-school-name">Kendriya Vidyalaya ONGC</span>
             </div>
+            <div class="edu-meta">Year: 2024 - 2025 | CBSE Board</div>
           </summary>
           <div class="edu-content">
-            <p><strong>Class:</strong> 12th Standard</p>
-            <p><strong>Board:</strong> CBSE</p>
-            <p><strong>Year:</strong> 2024 - 2025</p>
-            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-            <br>
             <p><strong>Profile Summary: </strong>Served as the School Discipline Captain, demonstrating 
               leadership, responsibility, and organizational skills by maintaining discipline and coordinating with the 
               school council. Also worked as a Class Monitor, representing students and assisting in classroom management. 
@@ -679,17 +703,14 @@
 
         <details class="edu-card">
           <summary>
-            <div class="edu-header">
+            <div class="edu-title">Class 10th (ICSE)</div>
+            <div class="edu-school-wrap">
               <img src="Image/stc.jpg" alt="School Logo" class="edu-logo">
-              <span>St. Thomas' College</span>
+              <span class="edu-school-name">St. Thomas' College</span>
             </div>
+            <div class="edu-meta">Year: 2022 - 2023 | ICSE Board</div>
           </summary>
           <div class="edu-content">
-            <p><strong>Class:</strong> 10th Standard</p>
-            <p><strong>Board:</strong> ICSE</p>
-            <p><strong>Year:</strong> 2022 - 2023</p>
-            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-            <br>
             <p><strong>Profile Summary: </strong>Developed a strong foundation in programming, computational thinking, 
               problem-solving while actively participating in academic and extracurricular activities.</p>
             <br>
