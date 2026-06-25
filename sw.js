@@ -1,4 +1,4 @@
-const CACHE_NAME = 'anmol-portfolio-v3';
+const CACHE_NAME = 'anmol-portfolio-v6';
 
 const urlsToCache = [
   '/Portfolio/',
