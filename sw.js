@@ -1,29 +1,37 @@
-const CACHE_NAME = 'anmol-portfolio-v1';
+const CACHE_NAME = 'anmol-portfolio-v2';
+
+// Using relative paths ensures it works perfectly on GitHub Pages
 const urlsToCache = [
-  '/Portfolio/',
-  '/Portfolio/index.html',
-  '/Portfolio/internships.html',
-  '/Portfolio/parttime.html',
-  '/Portfolio/ambassador.html',
-  '/Portfolio/manifest.json',
-  '/Portfolio/Image/photo.png'
+  './',
+  './index.html',
+  './internships.html',
+  './parttime.html',
+  './ambassador.html',
+  './manifest.json',
+  './photo.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME).then(cache => {
+      // This fail-safe approach caches files individually. 
+      // If one file 404s, it won't crash the entire Service Worker installation.
+      return Promise.all(
+        urlsToCache.map(url => {
+          return cache.add(url).catch(err => {
+            console.warn('Non-critical failure to cache:', url, err);
+          });
+        })
+      );
+    })
   );
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
 
