@@ -6,7 +6,6 @@
 <title>Anmol Gupta | Student Ambassador</title>
 
 <link rel="icon" type="image/png" href="photo.png">
-
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f172a">
 
@@ -164,6 +163,8 @@ h3 {
 
 .description {
     min-height: 50px; 
+    text-align: justify; /* Added content justification */
+    white-space: pre-wrap; /* Ensures the JS doesn't break line returns */
 }
 </style>
 </head>
@@ -188,66 +189,27 @@ h3 {
         <details class="project-card" open>
             <summary>Google Student Ambassador 2026</summary>
             <div class="project-content">
-                <p class="description">
-                    As a Google Student Ambassador, I serve as a bridge between Google technologies and the student community by promoting innovation, digital learning, and career 
-                    development initiatives on campus. My role involves organizing workshops, webinars, coding sessions, and community events that help students explore emerging 
-                    technologies such as Artificial Intelligence, Cloud Computing, Android Development, Web Technologies, and Digital Marketing.
-                    
-                    <br><br>
-                    
-                    I actively collaborate with students, developers, and academic communities to create awareness about Google programs, certifications, and opportunities. Through 
-                    leadership, communication, and technical mentoring, I encourage peers to build practical skills, participate in hackathons, contribute to open-source projects, and 
-                    stay updated with the latest industry trends.
-                    
-                    <br><br>
-                    
-                    As an ambassador, I focus on community engagement, problem-solving, and empowering students to use technology for real-world impact. I also work on content creation,
-                    event management, and networking with professionals to strengthen collaboration between academia and industry.
-                    
-                    <br><br>
-                    
-                    Key responsibilities include:
-                    <br>
-                    
-                       • Promoting Google tools, products, and learning resources
-                    
-                    <br>
-                    
-                       • Conducting technical and non-technical workshops
-                    
-                    <br>
-                    
-                       • Building and managing student communities
-                    
-                    <br>
-                    
-                       • Supporting peers in career guidance and skill development
-                    
-                    <br>
-                    
-                       • Encouraging innovation, entrepreneurship, and teamwork
-                    
-                    <br>
-                    
-                       • Creating digital campaigns and campus outreach programs
-                    
-                    <br>
-                    
-                       • Representing Google initiatives within the university ecosystem
-                    
-                    <br>
-                    
-                    <br><br>
-                    
-                    This experience has enhanced my leadership, public speaking, teamwork, project management, and technical communication skills while allowing me to contribute
-                    meaningfully to the growth of a tech-driven student community. I am passionate about inspiring students to learn, innovate, and leverage technology to create 
-                    positive change.
-                </p>
+                <p class="description">As a Google Student Ambassador, I serve as a bridge between Google technologies and the student community by promoting innovation, digital learning, and career development initiatives on campus. My role involves organizing workshops, webinars, coding sessions, and community events that help students explore emerging technologies such as Artificial Intelligence, Cloud Computing, Android Development, Web Technologies, and Digital Marketing.
+
+I actively collaborate with students, developers, and academic communities to create awareness about Google programs, certifications, and opportunities. Through leadership, communication, and technical mentoring, I encourage peers to build practical skills, participate in hackathons, contribute to open-source projects, and stay updated with the latest industry trends.
+
+As an ambassador, I focus on community engagement, problem-solving, and empowering students to use technology for real-world impact. I also work on content creation, event management, and networking with professionals to strengthen collaboration between academia and industry.
+
+Key responsibilities include:
+• Promoting Google tools, products, and learning resources
+• Conducting technical and non-technical workshops
+• Building and managing student communities
+• Supporting peers in career guidance and skill development
+• Encouraging innovation, entrepreneurship, and teamwork
+• Creating digital campaigns and campus outreach programs
+• Representing Google initiatives within the university ecosystem
+
+This experience has enhanced my leadership, public speaking, teamwork, project management, and technical communication skills while allowing me to contribute meaningfully to the growth of a tech-driven student community. I am passionate about inspiring students to learn, innovate, and leverage technology to create positive change.</p>
                 
                 <h3>Images & Engagements</h3>
                 <div class="image-gallery">
                     <img src="Image/google-event1.jpg" class="gallery-img" alt="Google Event 1" onerror="this.style.display='none'">
-                    </div>
+                </div>
 
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -285,7 +247,14 @@ h3 {
             const descPara = card.querySelector('.description');
 
             if (descPara) {
-                const originalText = descPara.textContent.replace(/\s+/g, ' ').trim();
+                // Updated JS Logic: Preserves your actual line breaks instead of squishing them
+                const originalText = descPara.textContent
+                    .split('\n')
+                    .map(line => line.trim())
+                    .join('\n')
+                    .replace(/\n{3,}/g, '\n\n')
+                    .trim();
+                    
                 descPara.dataset.text = originalText;
                 descPara.textContent = '';
 
@@ -303,6 +272,7 @@ h3 {
                         descPara.textContent = ''; 
                         let i = 0;
 
+                        // Reduced interval slightly to accommodate larger blocks of text smoothly
                         this.typingInterval = setInterval(() => {
                             if (i < originalText.length) {
                                 descPara.textContent += originalText.charAt(i);
@@ -311,7 +281,7 @@ h3 {
                                 clearInterval(this.typingInterval);
                                 descPara.classList.remove('typing-cursor');
                             }
-                        }, 25); 
+                        }, 10); 
                     } else {
                         descPara.textContent = '';
                         descPara.classList.remove('typing-cursor');
