@@ -62,11 +62,12 @@
     }
 
     .logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 1px;
-}
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+    }
+    
     .nav-links {
       display: flex;
       gap: 18px;
@@ -74,7 +75,7 @@
     }
 
     .hero {
-      padding: 90px 0 70px;
+      padding: 100px 0;
     }
 
     .hero-grid {
@@ -94,26 +95,22 @@
       background: rgba(56, 189, 248, 0.08);
     }
 
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.1;
-      margin-bottom: 16px;
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin-bottom: 24px;
+      text-align: justify;
+      line-height: 1.9;
+      letter-spacing: 0.3px;
     }
-
-.hero p {
-  color: var(--muted);
-  font-size: 1.05rem;
-  max-width: 650px;
-  margin-bottom: 24px;
-  text-align: justify;
-  line-height: 1.9;
-  letter-spacing: 0.3px;
-}
-.card p{
-    text-align: justify;
-    line-height: 1.8;
-}
-  .buttons {
+    
+    .card p{
+      text-align: justify;
+      line-height: 1.8;
+    }
+    
+    .buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
@@ -125,27 +122,43 @@
       border-radius: 10px;
       font-weight: 600;
       border: 1px solid transparent;
+      transition: 0.3s ease;
     }
 
+    /* New Button Styles */
     .btn.primary {
-      background: var(--accent);
-      color: #00111a;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: #020617;
+      border-radius: 30px;
+      padding: 12px 28px;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     }
-
+    .btn.primary:hover {
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
+      text-decoration: none;
+    }
+    
     .btn.secondary {
-      border-color: var(--border);
-      color: var(--text);
-      background: transparent;
+      border-radius: 30px;
+      padding: 12px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.03);
+      color: white;
+    }
+    .btn.secondary:hover {
+      background: rgba(255,255,255,0.08);
+      text-decoration: none;
     }
 
-    .profile-card{
-    background: rgba(17,24,39,.95);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:35px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
+    .profile-card {
+      background: rgba(17,24,39,.95);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
+    
     .profile-card h3 {
       margin-bottom: 10px;
     }
@@ -175,10 +188,17 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 22px;
+      transition: 0.3s;
+    }
+    
+    .card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-5px);
     }
 
     .card h3 {
       margin-bottom: 10px;
+      color: white;
     }
 
     .card p,
@@ -218,157 +238,225 @@
       margin-top: 30px;
     }
 
-.edu-content p{
-    text-align: justify;
-    line-height: 1.9;
-}
-
-.edu-content{
-    text-align: justify;
-}
-
-  
-.edu-content{
-    overflow: hidden;
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown{
-    from{
-        opacity:0;
-        transform:translateY(-10px);
+    .edu-content p {
+      text-align: justify;
+      line-height: 1.9;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    .edu-content {
+      text-align: justify;
+      overflow: hidden;
+      animation: slideDown 0.3s ease;
     }
-}
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     
-.profile-img {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    border-radius: 20px;
-    border: 4px solid var(--accent);
-    display: block;
-    margin: 0 auto;
-}
-
-.exp-box{
-    background:#374151;
-    border-radius:16px;
-    padding:25px;
-    text-decoration:none;
-    color:white;
-    border:1px solid #4b5563;
-    transition:0.3s;
-}
-
-.exp-box:hover{
-    transform:translateY(-5px);
-    border-color:#38bdf8;
-}    
+    .edu-card {
+      background: #374151;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      border: 1px solid #4b5563;
+      overflow: hidden;
+      transition: 0.3s;
+    }
     
-.profile-img:hover {
-    transform: scale(1.03);
-}
-
-    .internship-card{
-    background:#374151;
-    border-radius:16px;
-    margin-bottom:20px;
-}
-
-.timeline{
-    margin-left:30px;
-    border-left:4px solid #9ca3af;
-    padding-left:30px;
-}
-
-.project-card{
-    margin:20px 0;
-}
-
-.project-card summary{
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.offer-letter{
-    max-width:500px;
-    width:100%;
-    border-radius:10px;
-    margin:15px 0;
-}
+    .edu-card summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 22px;
+    }
     
-.hero{
-    padding:100px 0;
-}
-
-.hero h2{
-    font-size:2rem;
-    margin-bottom:20px;
-}
-
-.hero p{
-    margin-bottom:35px;
-}
-
-
-   .edu-card {
-background: #374151;
-border-radius: 16px;
-margin-bottom: 18px;
-border: 1px solid #4b5563;
-overflow: hidden;
-}
-.edu-card summary {
-list-style: none;
-cursor: pointer;
-padding: 18px 22px;
-}
-.edu-card summary::-webkit-details-marker {
-display: none;
-}
-.edu-header {
-display: flex;
-align-items: center;
-gap: 15px;
-font-size: 1.1rem;
-font-weight: 600;
-color: white;
-}
-.edu-logo {
-width: 50px;
-height: 50px;
-border-radius: 12px;
-object-fit: cover;
-background: white;
-padding: 4px;
-}
-.edu-content {
-padding: 0 22px 22px;
-color: #d1d5db;
-line-height: 1.8;
-}
-.edu-card[open] {
-box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-html {
-scroll-behavior: smooth;
-}
+    .edu-card summary::-webkit-details-marker {
+      display: none;
+    }
     
-html {
-    scroll-behavior: smooth;
-}
-
-:target {
-    scroll-margin-top: 100px;
-}
+    .edu-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+    }
     
-@media (max-width: 800px) {
+    .edu-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: white;
+      padding: 4px;
+    }
+    
+    .edu-content {
+      padding: 0 22px 22px;
+      color: #d1d5db;
+      line-height: 1.8;
+    }
+    
+    .edu-card[open] {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-color: #38bdf8;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :target {
+      scroll-margin-top: 100px;
+    }
+
+    /* --- NEW HERO SECTION STYLES --- */
+    .hero-name {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+    }
+    .hero-name span.first {
+      color: white;
+      display: block;
+    }
+    .hero-name span.last {
+      color: var(--accent);
+      display: block;
+    }
+
+    .typewriter-container {
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .typewriter-container .dot {
+      color: var(--muted);
+      margin: 0 10px;
+    }
+    
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.2em;
+      background-color: var(--accent);
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+    }
+    
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Stats Box */
+    .stats-box {
+      display: flex;
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 0;
+      margin-top: 40px;
+      max-width: 600px;
+      justify-content: space-evenly;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 0 20px;
+      border-right: 1px solid var(--border);
+      flex: 1;
+    }
+    
+    .stat-item:last-child {
+      border-right: none;
+    }
+    
+    .stat-item h4 {
+      font-size: 1.6rem;
+      color: white;
+      margin-bottom: 4px;
+    }
+    
+    .stat-item p {
+      font-size: 0.65rem !important;
+      color: var(--muted) !important;
+      letter-spacing: 1px;
+      margin: 0 !important;
+      text-transform: uppercase;
+    }
+
+    /* Rotating AG Circle */
+    .circle-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+    }
+    
+    .rotating-ring {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+      border-top: 3px solid var(--accent);
+      border-right: 3px solid #818cf8;
+      animation: rotateSpin 5s linear infinite;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+    }
+    
+    .rotating-ring::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      top: 40px;
+      left: 40px;
+      box-shadow: 0 0 10px var(--accent);
+    }
+    
+    .inner-circle {
+      width: 280px;
+      height: 280px;
+      background: #020617;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: inset 0 0 40px rgba(56, 189, 248, 0.05);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    
+    .inner-circle h2 {
+      font-size: 6.5rem;
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    @keyframes rotateSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 800px) {
       .hero-grid {
         grid-template-columns: 1fr;
+        text-align: center;
       }
       .nav {
         justify-content: center;
@@ -376,6 +464,31 @@ html {
       .nav-links {
         justify-content: center;
       }
+      .hero p {
+        margin: 0 auto 24px;
+        text-align: center;
+      }
+      .typewriter-container {
+        justify-content: center;
+      }
+      .buttons {
+        justify-content: center;
+      }
+      .stats-box {
+        flex-wrap: wrap;
+        gap: 20px 0;
+        margin: 40px auto 0;
+      }
+      .stat-item {
+        min-width: 40%;
+        border-right: none;
+      }
+      .circle-wrapper {
+        min-height: 300px;
+      }
+      .rotating-ring { width: 260px; height: 260px; }
+      .inner-circle { width: 220px; height: 220px; }
+      .inner-circle h2 { font-size: 5rem; }
     }
   </style>
 </head>
@@ -389,183 +502,166 @@ html {
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-
-
-
-
-
-  
   <main>
-<section class="hero" id="about">
-    <div class="container hero-grid">
+    <section class="hero" id="about">
+      <div class="container hero-grid">
 
-        <!-- Left Content -->
         <div class="hero-content">
+          <h1 class="hero-name">
+            <span class="first">Anmol</span>
+            <span class="last">Gupta</span>
+          </h1>
 
-            <h2>Headline</h2>
+          <div class="typewriter-container">
+            &gt; B.Tech CSE Student <span class="dot">•</span> <span id="typewriter"></span><span class="cursor"></span>
+          </div>
 
-            <p>
-                Google Student Ambassador '26 | AI Enthusiast | GEU B.Tech CSE'29 |
-                Java | Python | SQL | C | DSA | Tech Learner - Learning, Building,
-                Evolving | Aspiring Web Developer | Problem Solver & Innovator |
-                NSS Crew Member.
-            </p>
+          <p>
+            Building tomorrow's intelligence, one algorithm at a time. B.Tech CSE @ Graphic Era University, Dehradun.
+          </p>
 
-            <h2>About</h2>
-
-            <p>
-                Ambitious Computer Science Engineering undergraduate at
-                Graphic Era Deemed University, Dehradun, currently pursuing
-                a B.Tech in CSE. Passionate about technology and innovation,
-                with a strong foundation in programming, algorithms, and
-                software development. Served as an NSS member, contributing to community initiatives
-                while developing leadership and teamwork skills.
-
-                <br><br>
-
-                Eager to apply academic knowledge to real-world problems,
-                especially in areas like AI, web development, and data
-                structures. Committed to continuous learning and professional
-                growth and seeking opportunities to contribute to impactful
-                software development and IT projects.
-            </p>
           <div class="buttons">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn secondary" href="#contact">Contact Me</a>
+            <a class="btn primary" href="#projects">→ View Projects</a>
+            <a class="btn secondary" href="#contact">💬 Contact Me</a>
+          </div>
+
+          <div class="stats-box">
+            <div class="stat-item">
+              <h4>8+</h4>
+              <p>CGPA Sem 1</p>
+            </div>
+            <div class="stat-item">
+              <h4>2029+</h4>
+              <p>Graduation</p>
+            </div>
+            <div class="stat-item">
+              <h4>3+</h4>
+              <p>Projects Built</p>
+            </div>
+            <div class="stat-item">
+              <h4>2+</h4>
+              <p>Certifications</p>
+            </div>
           </div>
         </div>
 
-<img src="Image/photo.png" alt="Anmol Gupta" class="profile-img">      </div>
+        <div class="circle-wrapper">
+          <div class="rotating-ring"></div>
+          <div class="inner-circle">
+            <h2>AG</h2>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-   
-<section id="education">
-<div class="container">
-<h2 class="section-title">Education</h2>
-<details class="edu-card">
-<summary>
-<div class="edu-header">
-<img src="Image/geu.jpeg" alt="GEU Logo" class="edu-logo">
-<span>Graphic Era Deemed University</span>
-</div>
-</summary>
-<div class="edu-content">
-<p><strong>Degree:</strong> B.Tech in Computer Science Engineering</p>
-<p><strong>Duration:</strong> 2025 - 2029</p>
-<p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-<br>
-<p><strong>Profile Summary: </strong>Serving as the Class Representative (CR), where I develop leadership, 
-  communication, and team management skills. Actively involved in the National Service Scheme (NSS),
-  which helped me in contributing to community service and social initiatives. Passionate about 
-  programming, software development, problem-solving, and continuously enhancing my technical 
-  skills through projects, certifications, and practical learning experiences.</p>
-<br>
-<p><strong>Skills Gained:</strong> Computer Programming, C Programming, Java Programming, 
-  Python Programming, Web Development, Data Structures, Debugging, Artificial Intelligence, 
-  Generative AI, Prompt Engineering, Responsible AI, Ethics AI, Data Analysis, Data Management, 
-  Analytical Skills, Microsoft Office, Canva, Leadership, Team Building, Team Management, Teamwork,
-  Communication, Critical Thinking, Decision-Making, Problem Solving, Public Speaking, 
-  Time Management, Innovation & Creativity.</p>
-</div>
-  
-</details>
-<details class="edu-card">
-<summary>
-<div class="edu-header">
-<img src="Image/kv.jpg" alt="School Logo" class="edu-logo">
-<span>Kendriya Vidhalaya ONGC</span>
-</div>
-</summary>
-<div class="edu-content">
-<p><strong>Class:</strong> 12th Standard</p>
-<p><strong>Board:</strong> CBSE</p>
-<p><strong>Year:</strong> 2024 - 2025</p>
-<p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-<br>
-<p><strong>Profile Summary: </strong>Served as the School Discipline Captain, demonstrating 
-  leadership, responsibility, and organizational skills by maintaining discipline and coordinating with the 
-  school council. Also worked as a Class Monitor, representing students and assisting in classroom management. 
-  Actively participated in school events, leadership activities, and co-curricular programs, which strengthened
-  my communication, teamwork, and problem-solving abilities. Developed a strong foundation in Computer Science 
-  and technology while balancing academics with leadership responsibilities.</p>
-<br>
-<p><strong>Skills Gained:</strong> Computer Programming, Java Programming, Python Programming, SQL, Debugging, 
-  Data Management, Microsoft Office, Canva, Leadership, Team Building, Team Management, Teamwork, Communication,
-  Critical Thinking, Decision-Making, Problem Solving, Public Speaking, Time Management, Innovation & Creativity.</p>
-</div>
-</details>
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        
+        <details class="edu-card">
+          <summary>
+            <div class="edu-header">
+              <img src="Image/geu.jpeg" alt="GEU Logo" class="edu-logo">
+              <span>Graphic Era Deemed University</span>
+            </div>
+          </summary>
+          <div class="edu-content">
+            <p><strong>Degree:</strong> B.Tech in Computer Science Engineering</p>
+            <p><strong>Duration:</strong> 2025 - 2029</p>
+            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
+            <br>
+            <p><strong>Profile Summary: </strong>Serving as the Class Representative (CR), where I develop leadership, 
+              communication, and team management skills. Actively involved in the National Service Scheme (NSS),
+              which helped me in contributing to community service and social initiatives. Passionate about 
+              programming, software development, problem-solving, and continuously enhancing my technical 
+              skills through projects, certifications, and practical learning experiences.</p>
+            <br>
+            <p><strong>Skills Gained:</strong> Computer Programming, C Programming, Java Programming, 
+              Python Programming, Web Development, Data Structures, Debugging, Artificial Intelligence, 
+              Generative AI, Prompt Engineering, Responsible AI, Ethics AI, Data Analysis, Data Management, 
+              Analytical Skills, Microsoft Office, Canva, Leadership, Team Building, Team Management, Teamwork,
+              Communication, Critical Thinking, Decision-Making, Problem Solving, Public Speaking, 
+              Time Management, Innovation & Creativity.</p>
+          </div>
+        </details>
+        
+        <details class="edu-card">
+          <summary>
+            <div class="edu-header">
+              <img src="Image/kv.jpg" alt="School Logo" class="edu-logo">
+              <span>Kendriya Vidhalaya ONGC</span>
+            </div>
+          </summary>
+          <div class="edu-content">
+            <p><strong>Class:</strong> 12th Standard</p>
+            <p><strong>Board:</strong> CBSE</p>
+            <p><strong>Year:</strong> 2024 - 2025</p>
+            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
+            <br>
+            <p><strong>Profile Summary: </strong>Served as the School Discipline Captain, demonstrating 
+              leadership, responsibility, and organizational skills by maintaining discipline and coordinating with the 
+              school council. Also worked as a Class Monitor, representing students and assisting in classroom management. 
+              Actively participated in school events, leadership activities, and co-curricular programs, which strengthened
+              my communication, teamwork, and problem-solving abilities. Developed a strong foundation in Computer Science 
+              and technology while balancing academics with leadership responsibilities.</p>
+            <br>
+            <p><strong>Skills Gained:</strong> Computer Programming, Java Programming, Python Programming, SQL, Debugging, 
+              Data Management, Microsoft Office, Canva, Leadership, Team Building, Team Management, Teamwork, Communication,
+              Critical Thinking, Decision-Making, Problem Solving, Public Speaking, Time Management, Innovation & Creativity.</p>
+          </div>
+        </details>
 
-<details class="edu-card">
-    <summary>
-        <div class="edu-header">
-            <img src="Image/stc.jpg" alt="School Logo" class="edu-logo">
-            <span>St. Thomas' College</span>
-        </div>
-    </summary>
+        <details class="edu-card">
+          <summary>
+            <div class="edu-header">
+              <img src="Image/stc.jpg" alt="School Logo" class="edu-logo">
+              <span>St. Thomas' College</span>
+            </div>
+          </summary>
+          <div class="edu-content">
+            <p><strong>Class:</strong> 10th Standard</p>
+            <p><strong>Board:</strong> ICSE</p>
+            <p><strong>Year:</strong> 2022 - 2023</p>
+            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
+            <br>
+            <p><strong>Profile Summary: </strong>Developed a strong foundation in programming, computational thinking, 
+              problem-solving while actively participating in academic and extracurricular activities.</p>
+            <br>
+            <p><strong>Skills Gained:</strong> Computer Programming, Java Programming, Debugging, Microsoft Office, 
+              Canva, Teamwork, Communication, Critical Thinking, Decision-Making,  Problem Solving, Public Speaking, 
+              Time Management, Innovation & Creativity, Video Editing, Image Editing, Audio Editing.</p>
+          </div>
+        </details>
+        
+      </div>
+    </section>
 
-    <div class="edu-content">
-        <p><strong>Class:</strong> 10th Standard</p>
-        <p><strong>Board:</strong> ICSE</p>
-        <p><strong>Year:</strong> 2022 - 2023</p>
-        <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
-      <br>
-<p><strong>Profile Summary: </strong>Developed a strong foundation in programming, computational thinking, 
-  problem-solving while actively participating in academic and extracurricular activities.</p>
-<br>
-<p><strong>Skills Gained:</strong> Computer Programming, Java Programming, Debugging, Microsoft Office, 
-  Canva, Teamwork, Communication, Critical Thinking, Decision-Making,  Problem Solving, Public Speaking, 
-  Time Management, Innovation & Creativity, , Video Editing, Image Editing, Audio Editing.</p>
-
-    </div>
-</details>
-  
-</div>
-</section>
-
-    
-<section id="experience">
-    <div class="container">
-
+    <section id="experience">
+      <div class="container">
         <h2 class="section-title">Experience</h2>
-
         <div class="grid">
-
-            <a href="internships.html" class="card">
-                <h3>Internships</h3>
-                <p>
-                    View all internship experiences, projects,
-                    offer letters, and skills gained.
-                </p>
-            </a>
-
-            <a href="parttime.html" class="card">
-                <h3>Part Time</h3>
-                <p>
-                    View all part-time work experiences.
-                </p>
-            </a>
-
-            <!-- NEWLY ADDED STUDENT AMBASSADOR SECTION -->
-            <a href="ambassador.html" class="card">
-                <h3>Student Ambassador</h3>
-                <p>
-                    View all student ambassador programs and community leadership roles.
-                </p>
-            </a>
-
+          <a href="internships.html" class="card">
+            <h3>Internships</h3>
+            <p>View all internship experiences, projects, offer letters, and skills gained.</p>
+          </a>
+          <a href="parttime.html" class="card">
+            <h3>Part Time</h3>
+            <p>View all part-time work experiences.</p>
+          </a>
+          <a href="ambassador.html" class="card">
+            <h3>Student Ambassador</h3>
+            <p>View all student ambassador programs and community leadership roles.</p>
+          </a>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
-
-    
-   
     <section id="skills">
       <div class="container">
         <h2 class="section-title">Skills</h2>
@@ -607,28 +703,21 @@ html {
         <div class="grid">
           <div class="card">
             <h3>Automatic Sensor-Based Dustbin</h3>
-            <p>
-              An embedded project idea focused on automation using sensors to detect and open a dustbin
-              without manual contact.
-            </p>
+            <p>An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.</p>
           </div>
           <div class="card">
             <h3>Cafeteria Management System</h3>
-            <p>
-              A management system project for handling menu items, ordering, and basic service workflow.
-            </p>
+            <p>A management system project for handling menu items, ordering, and basic service workflow.</p>
           </div>
           <div class="card">
             <h3>C Programming Practice</h3>
-            <p>
-              Projects and exercises involving strings, pointers, arrays, and logic-building to strengthen core coding skills.
-            </p>
+            <p>Projects and exercises involving strings, pointers, arrays, and logic-building to strengthen core coding skills.</p>
           </div>
         </div>
       </div>
     </section>
 
-<section id="contact">
+    <section id="contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <div class="card contact-box">
@@ -638,28 +727,71 @@ html {
         </div>
       </div>
     </section>
-
-    
   </main>
 
   <footer>
-  <div class="container">
-    <p>© 2026 Anmol Gupta. All rights reserved.</p>
-  </div>
-</footer>
+    <div class="container">
+      <p>© 2026 Anmol Gupta. All rights reserved.</p>
+    </div>
+  </footer>
 
-<script>
-document.querySelectorAll('.edu-card').forEach((detail) => {
-    detail.addEventListener('toggle', function () {
+  <script>
+    // Script for Education Cards Toggle
+    document.querySelectorAll('.edu-card').forEach((detail) => {
+      detail.addEventListener('toggle', function () {
         if (this.open) {
-            document.querySelectorAll('.edu-card').forEach((item) => {
-                if (item !== this) {
-                    item.removeAttribute('open');
-                }
-            });
+          document.querySelectorAll('.edu-card').forEach((item) => {
+            if (item !== this) {
+              item.removeAttribute('open');
+            }
+          });
         }
+      });
     });
-});
-</script>
+
+    // Script for Typewriter Effect
+    const words = ["AI", "Open Source Builder", "Tech Enthusiast"];
+    let i = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typeTarget = document.getElementById("typewriter");
+
+    function typeEffect() {
+      if (!typeTarget) return; // Prevent errors if element is missing
+      
+      const currentWord = words[i];
+      
+      if (isDeleting) {
+        typeTarget.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typeTarget.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typingSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typingSpeed = 2000; // Pause at the end of the word
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        i++;
+        if (i >= words.length) i = 0;
+        typingSpeed = 500; // Pause before typing the next word
+      }
+
+      setTimeout(typeEffect, typingSpeed);
+    }
+
+    // Start the typing effect after page load
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(typeEffect, 1000);
+    });
+  </script>
 </body>
 </html>
+
+
+
+
