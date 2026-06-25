@@ -2,20 +2,23 @@
   "name": "Anmol Gupta Portfolio",
   "short_name": "Anmol",
   "description": "Portfolio of Anmol Gupta, Google Student Ambassador and B.Tech CSE Student.",
-  "start_url": "/Portfolio/index.html",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "Image/photo.png",
+      "src": "photo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "Image/photo.png",
+      "src": "photo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
