@@ -1,9 +1,10 @@
 {
-  "name": "Anmol Gupta | Portfolio",
-  "short_name": "Anmol's Portfolio",
-  "start_url": "./index.html",
+  "name": "Anmol Gupta Portfolio",
+  "short_name": "Anmol",
+  "description": "Portfolio of Anmol Gupta, Google Student Ambassador and B.Tech CSE Student.",
+  "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#020617",
+  "background_color": "#0f172a",
   "theme_color": "#0f172a",
   "icons": [
     {
