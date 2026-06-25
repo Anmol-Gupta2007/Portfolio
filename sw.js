@@ -1,31 +1,48 @@
-const CACHE_NAME = 'portfolio-cache-v1';
+const CACHE_NAME = 'anmol-portfolio-v1';
 const urlsToCache = [
-  './',
-  './index.html',
-  './internship.html',
-  './parttime.html',
-  './ambassador.html',
-  './photo.png'
+  '/',
+  '/index.html',
+  '/internships.html',
+  '/parttime.html',
+  '/ambassador.html',
+  '/manifest.json',
+  '/photo.png'
+  // Add any other specific images or files you want available offline
 ];
 
-// Install the service worker and cache the files
+// Install the service worker and cache files
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-// Serve cached files when offline
+// Fetch cached files when offline
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Return the cached response if found, otherwise fetch from network
+        // Return cached version or fetch from network
         return response || fetch(event.request);
       })
+  );
+});
+
+// Update the service worker and remove old caches
+self.addEventListener('activate', event => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
