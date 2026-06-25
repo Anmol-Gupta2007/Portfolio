@@ -250,18 +250,17 @@
       margin-top: 30px;
     }
 
-    /* --- NEW EDUCATION CARD STYLES --- */
+    /* --- UPDATED EDUCATION CARD STYLES --- */
     .edu-card {
       position: relative;
-      background: rgba(17, 24, 39, 0.92); 
-      border-radius: 16px;
+      background: #1f2937; /* Default dark slate */
+      border-radius: 12px;
       margin-bottom: 18px;
-      border: 1px solid var(--border);
-      overflow: hidden; /* This ensures the top line curves perfectly with the border-radius */
+      border: 1px solid #374151;
+      overflow: hidden;
       transition: all 0.3s ease;
     }
 
-    /* The glowing bold line at the very top */
     .edu-card::before {
       content: '';
       position: absolute;
@@ -269,13 +268,24 @@
       left: 0;
       right: 0;
       width: 100%;
-      height: 6px; /* Bolder line to match screenshot */
-      background: linear-gradient(90deg, #00f2fe, #4facfe); /* Cyan to blue */
-      opacity: 0; /* Hidden by default */
+      height: 5px; 
+      background: linear-gradient(90deg, #00f2fe, #4facfe); 
+      opacity: 0; 
       transition: opacity 0.3s ease;
       z-index: 10;
     }
     
+    /* Open State Adjustments */
+    .edu-card[open] {
+      background: #2b3b4e; /* The lighter blue-slate color from your image */
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      border-color: #4b5563; /* Subtle border change */
+    }
+
+    .edu-card[open]::before {
+      opacity: 1; 
+    }
+
     .edu-card summary {
       list-style: none;
       cursor: pointer;
@@ -287,41 +297,26 @@
     .edu-card summary::-webkit-details-marker {
       display: none;
     }
-
-    .edu-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 12px;
-    }
     
-    .edu-school-wrap {
+    .edu-header {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
+      gap: 15px;
     }
 
     .edu-logo {
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
-      object-fit: cover;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: contain;
       background: white;
-      padding: 2px;
+      padding: 4px;
     }
 
     .edu-school-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #00e5ff; /* Cyan color from screenshot */
-    }
-
-    .edu-meta {
-      font-size: 0.95rem;
-      color: #6b7280; /* Subtle grey matching the reference image */
-      font-family: monospace;
-      letter-spacing: 0.5px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: white;
     }
 
     .edu-content {
@@ -329,26 +324,17 @@
       color: #d1d5db;
       line-height: 1.8;
       text-align: justify;
-      border-top: 1px solid transparent;
       overflow: hidden;
       animation: slideDown 0.3s ease;
     }
-    
-    /* Open State Adjustments */
-    .edu-card[open] {
-      box-shadow: 0 10px 40px rgba(0, 242, 254, 0.08); /* Subtle cyan glow below */
-      /* We leave the border dark so ONLY the top line is colored */
-      border-color: var(--border); 
+
+    .edu-content p {
+      margin-bottom: 8px; /* Adds space between lines like the image */
+      font-size: 1rem;
     }
 
-    /* Shows the bold top line ONLY when clicked/open */
-    .edu-card[open]::before {
-      opacity: 1; 
-    }
-
-    .edu-card[open] .edu-content {
-      border-top: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle divider line */
-      padding-top: 20px;
+    .edu-content p strong {
+      color: #e5e7eb; /* Bright white for labels like 'Degree:' */
     }
     
     @keyframes slideDown {
@@ -663,14 +649,16 @@
         
         <details class="edu-card">
           <summary>
-            <div class="edu-title">B.Tech — Computer Science Engineering</div>
-            <div class="edu-school-wrap">
+            <div class="edu-header">
               <img src="Image/geu.jpeg" alt="GEU Logo" class="edu-logo">
               <span class="edu-school-name">Graphic Era Deemed University</span>
             </div>
-            <div class="edu-meta">Duration: 2025 - 2029 | Location: Dehradun, Uttarakhand</div>
           </summary>
           <div class="edu-content">
+            <p><strong>Degree:</strong> B.Tech in Computer Science Engineering</p>
+            <p><strong>Duration:</strong> 2025 - 2029</p>
+            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
+            <br>
             <p><strong>Profile Summary: </strong>Serving as the Class Representative (CR), where I develop leadership, 
               communication, and team management skills. Actively involved in the National Service Scheme (NSS),
               which helped me in contributing to community service and social initiatives. Passionate about 
@@ -688,14 +676,17 @@
         
         <details class="edu-card">
           <summary>
-            <div class="edu-title">Class 12th — Science (CBSE)</div>
-            <div class="edu-school-wrap">
+            <div class="edu-header">
               <img src="Image/kv.jpg" alt="School Logo" class="edu-logo">
               <span class="edu-school-name">Kendriya Vidyalaya ONGC</span>
             </div>
-            <div class="edu-meta">Year: 2024 - 2025 | CBSE Board</div>
           </summary>
           <div class="edu-content">
+            <p><strong>Class:</strong> 12th Standard</p>
+            <p><strong>Board:</strong> CBSE</p>
+            <p><strong>Year:</strong> 2024 - 2025</p>
+            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
+            <br>
             <p><strong>Profile Summary: </strong>Served as the School Discipline Captain, demonstrating 
               leadership, responsibility, and organizational skills by maintaining discipline and coordinating with the 
               school council. Also worked as a Class Monitor, representing students and assisting in classroom management. 
@@ -711,14 +702,17 @@
 
         <details class="edu-card">
           <summary>
-            <div class="edu-title">Class 10th (ICSE)</div>
-            <div class="edu-school-wrap">
+            <div class="edu-header">
               <img src="Image/stc.jpg" alt="School Logo" class="edu-logo">
               <span class="edu-school-name">St. Thomas' College</span>
             </div>
-            <div class="edu-meta">Year: 2022 - 2023 | ICSE Board</div>
           </summary>
           <div class="edu-content">
+            <p><strong>Class:</strong> 10th Standard</p>
+            <p><strong>Board:</strong> ICSE</p>
+            <p><strong>Year:</strong> 2022 - 2023</p>
+            <p><strong>Location:</strong> Dehradun, Uttarakhand</p>
+            <br>
             <p><strong>Profile Summary: </strong>Developed a strong foundation in programming, computational thinking, 
               problem-solving while actively participating in academic and extracurricular activities.</p>
             <br>
