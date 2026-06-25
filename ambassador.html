@@ -94,14 +94,16 @@ body {
 }
 
 .project-card summary {
-    padding: 16px;
+    /* Reduced bottom padding to pull the description up */
+    padding: 16px 16px 5px 16px; 
     font-weight: 600;
     cursor: pointer;
     font-size: 1.4rem;
 }
 
 .project-content {
-    padding: 20px;
+    /* Removed top padding completely to close the gap */
+    padding: 0px 20px 20px 20px; 
 }
 
 .project-title {
@@ -163,8 +165,9 @@ h3 {
 
 .description {
     min-height: 50px; 
-    text-align: justify; /* Added content justification */
-    white-space: pre-wrap; /* Ensures the JS doesn't break line returns */
+    text-align: justify; 
+    white-space: pre-wrap; 
+    margin-top: 0; /* Removes default paragraph margin at the top */
 }
 </style>
 </head>
@@ -189,30 +192,22 @@ h3 {
         <details class="project-card" open>
             <summary>Google Student Ambassador 2026</summary>
             <div class="project-content">
-                <p class="description">As a Google Student Ambassador, I serve as a bridge between Google technologies and the student community by promoting 
-                    innovation, digital learning, and career development initiatives on campus. My role involves organizing workshops, webinars, coding sessions,
-                    and community events that help students explore emerging technologies such as Artificial Intelligence, Cloud Computing, Android Development, 
-                    Web Technologies, and Digital Marketing.
+                <p class="description">As a Google Student Ambassador, I serve as a bridge between Google technologies and the student community by promoting innovation, digital learning, and career development initiatives on campus. My role involves organizing workshops, webinars, coding sessions, and community events that help students explore emerging technologies such as Artificial Intelligence, Cloud Computing, Android Development, Web Technologies, and Digital Marketing.
 
-                    I actively collaborate with students, developers, and academic communities to create awareness about Google programs, certifications, and 
-                    opportunities. Through leadership, communication, and technical mentoring, I encourage peers to build practical skills, participate in 
-                    hackathons, contribute to open-source projects, and stay updated with the latest industry trends.
+I actively collaborate with students, developers, and academic communities to create awareness about Google programs, certifications, and opportunities. Through leadership, communication, and technical mentoring, I encourage peers to build practical skills, participate in hackathons, contribute to open-source projects, and stay updated with the latest industry trends.
 
-                    As an ambassador, I focus on community engagement, problem-solving, and empowering students to use technology for real-world impact. I also 
-                    work on content creation, event management, and networking with professionals to strengthen collaboration between academia and industry.
+As an ambassador, I focus on community engagement, problem-solving, and empowering students to use technology for real-world impact. I also work on content creation, event management, and networking with professionals to strengthen collaboration between academia and industry.
 
-                    Key responsibilities include:
-                    • Promoting Google tools, products, and learning resources
-                    • Conducting technical and non-technical workshops
-                    • Building and managing student communities
-                    • Supporting peers in career guidance and skill development
-                    • Encouraging innovation, entrepreneurship, and teamwork
-                    • Creating digital campaigns and campus outreach programs
-                    • Representing Google initiatives within the university ecosystem
+Key responsibilities include:
+• Promoting Google tools, products, and learning resources
+• Conducting technical and non-technical workshops
+• Building and managing student communities
+• Supporting peers in career guidance and skill development
+• Encouraging innovation, entrepreneurship, and teamwork
+• Creating digital campaigns and campus outreach programs
+• Representing Google initiatives within the university ecosystem
 
-                    This experience has enhanced my leadership, public speaking, teamwork, project management, and technical communication skills while
-                    allowing me to contribute meaningfully to the growth of a tech-driven student community. I am passionate about inspiring students to 
-                    learn, innovate, and leverage technology to create positive change.</p>
+This experience has enhanced my leadership, public speaking, teamwork, project management, and technical communication skills while allowing me to contribute meaningfully to the growth of a tech-driven student community. I am passionate about inspiring students to learn, innovate, and leverage technology to create positive change.</p>
                 
                 <h3>Images & Engagements</h3>
                 <div class="image-gallery">
@@ -221,10 +216,6 @@ h3 {
                     <img src="Image/Pitch Night.png" class="gallery-img" alt="Pitch Night">
                     <img src="Image/Monthly Highlight June.png" class="gallery-img" alt="Monthly Highlight June">
                     <img src="Image/Battle of Bands" class="gallery-img" alt="Battle of Bands">
-                    <!-- <img src="Image/google-event1.jpg" class="gallery-img" alt="Google Event 1"> -->
-                    <!-- <img src="Image/google-event1.jpg" class="gallery-img" alt="Google Event 2"> -->
-                
-                </div>
                 </div>
 
                 <h3>Skills Gained</h3>
@@ -242,7 +233,6 @@ h3 {
                     <span class="skill">Time Management</span>
                     <span class="skill">Communication</span>
                     <span class="skill">Leadership</span>
-           
                 </div>
             </div>
         </details>
@@ -273,7 +263,6 @@ h3 {
             const descPara = card.querySelector('.description');
 
             if (descPara) {
-                // Updated JS Logic: Preserves your actual line breaks instead of squishing them
                 const originalText = descPara.textContent
                     .split('\n')
                     .map(line => line.trim())
@@ -298,7 +287,6 @@ h3 {
                         descPara.textContent = ''; 
                         let i = 0;
 
-                        // Reduced interval slightly to accommodate larger blocks of text smoothly
                         this.typingInterval = setInterval(() => {
                             if (i < originalText.length) {
                                 descPara.textContent += originalText.charAt(i);
@@ -314,7 +302,6 @@ h3 {
                     }
                 });
 
-                // Auto-trigger typing for already open cards on load
                 if (card.open) {
                     card.dispatchEvent(new Event('toggle'));
                 }
