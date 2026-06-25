@@ -102,8 +102,8 @@ body {
 }
 
 .project-content {
-    /* Removed top padding completely to close the gap */
-    padding: 0px 20px 20px 20px; 
+    /* The values are: top right bottom left */
+    padding: 0px 30px 45px 30px; 
 }
 
 .project-title {
@@ -116,7 +116,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 15px;
-    margin-top: 15px;
+    margin-top: 0; /* Removes double-spacing since h3 now handles the gap */
     width: 100%;
     max-width: 900px;
 }
@@ -137,8 +137,9 @@ body {
 .skills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
+    gap: 14px; /* Increases the gap between the skill buttons */
+    margin-top: 0; /* Removes double-spacing */
+    padding-bottom: 10px; /* Gives a little extra room at the bottom of the card */
 }
 
 .skill {
@@ -150,7 +151,8 @@ body {
 }
 
 h3 {
-    margin-top: 20px;
+    margin-top: 35px; /* Adds more space above the heading */
+    margin-bottom: 18px; /* Adds space between the heading and the content */
 }
 
 .typing-cursor::after {
@@ -192,22 +194,34 @@ h3 {
         <details class="project-card" open>
             <summary>Google Student Ambassador 2026</summary>
             <div class="project-content">
-                <p class="description">As a Google Student Ambassador, I serve as a bridge between Google technologies and the student community by promoting innovation, digital learning, and career development initiatives on campus. My role involves organizing workshops, webinars, coding sessions, and community events that help students explore emerging technologies such as Artificial Intelligence, Cloud Computing, Android Development, Web Technologies, and Digital Marketing.
+                <p class="description">As a Google Student Ambassador, I serve as a bridge between Google technologies 
+                    and the student community by promoting innovation, digital learning, and career development 
+                    initiatives on campus. My role involves organizing workshops, webinars, coding sessions, and 
+                    community events that help students explore emerging technologies such as Artificial Intelligence,
+                    Cloud Computing, Android Development, Web Technologies, and Digital Marketing.
 
-I actively collaborate with students, developers, and academic communities to create awareness about Google programs, certifications, and opportunities. Through leadership, communication, and technical mentoring, I encourage peers to build practical skills, participate in hackathons, contribute to open-source projects, and stay updated with the latest industry trends.
+                    I actively collaborate with students, developers, and academic communities to create awareness
+                    about Google programs, certifications, and opportunities. Through leadership, communication, and 
+                    technical mentoring, I encourage peers to build practical skills, participate in hackathons, 
+                    contribute to open-source projects, and stay updated with the latest industry trends.
 
-As an ambassador, I focus on community engagement, problem-solving, and empowering students to use technology for real-world impact. I also work on content creation, event management, and networking with professionals to strengthen collaboration between academia and industry.
+                    As an ambassador, I focus on community engagement, problem-solving, and empowering students to use
+                    technology for real-world impact. I also work on content creation, event management, and
+                    networking with professionals to strengthen collaboration between academia and industry.
 
-Key responsibilities include:
-• Promoting Google tools, products, and learning resources
-• Conducting technical and non-technical workshops
-• Building and managing student communities
-• Supporting peers in career guidance and skill development
-• Encouraging innovation, entrepreneurship, and teamwork
-• Creating digital campaigns and campus outreach programs
-• Representing Google initiatives within the university ecosystem
+                    Key responsibilities include:
+                    • Promoting Google tools, products, and learning resources
+                    • Conducting technical and non-technical workshops
+                    • Building and managing student communities
+                    • Supporting peers in career guidance and skill development
+                    • Encouraging innovation, entrepreneurship, and teamwork
+                    • Creating digital campaigns and campus outreach programs
+                    • Representing Google initiatives within the university ecosystem
 
-This experience has enhanced my leadership, public speaking, teamwork, project management, and technical communication skills while allowing me to contribute meaningfully to the growth of a tech-driven student community. I am passionate about inspiring students to learn, innovate, and leverage technology to create positive change.</p>
+                    This experience has enhanced my leadership, public speaking, teamwork, project management, and
+                    technical communication skills while allowing me to contribute meaningfully to the growth of a
+                    tech-driven student community. I am passionate about inspiring students to learn, innovate, and 
+                    leverage technology to create positive change.</p>
                 
                 <h3>Images & Engagements</h3>
                 <div class="image-gallery">
