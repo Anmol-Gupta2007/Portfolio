@@ -7,6 +7,9 @@
 
 <link rel="icon" type="image/png" href="photo.png">
 
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
+
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -173,13 +176,9 @@ h3 {
 
 <h1 class="page-title">Student Ambassador</h1>
 
-
-    
-<!-- Google Card -->
 <details class="internship-card" open>
     <summary>
         <div class="header">
-            <!-- Add your Google logo image here -->
             <img src="Image/google.jpeg" class="logo" alt="Google Logo" onerror="this.src='photo.png'">
             <span>Google</span>
         </div>
@@ -216,13 +215,9 @@ h3 {
                 </p>
                 
                 <h3>Images & Engagements</h3>
-                <!-- Add as many images inside this div as you want. -->
                 <div class="image-gallery">
                     <img src="Image/google-event1.jpg" class="gallery-img" alt="Google Event 1" onerror="this.style.display='none'">
-                    <!-- Uncomment and edit to add more images -->
-                    <!-- <img src="Image/google-event2.jpg" class="gallery-img" alt="Google Event 2"> -->
-                    <!-- <img src="Image/google-event3.jpg" class="gallery-img" alt="Google Event 3"> -->
-                </div>
+                    </div>
 
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -236,11 +231,6 @@ h3 {
     </div>
 </details>
 
-
-
-
-
-    
 </div>
 
 <script>
@@ -305,6 +295,20 @@ h3 {
             }
         });
     });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+  }
 </script>
 
 </body>
