@@ -253,30 +253,35 @@
     /* --- NEW EDUCATION CARD STYLES --- */
     .edu-card {
       position: relative;
-      background: rgba(17, 24, 39, 0.92); /* Darker matching theme */
+      background: rgba(17, 24, 39, 0.92); 
       border-radius: 16px;
       margin-bottom: 18px;
       border: 1px solid var(--border);
-      overflow: hidden;
-      transition: 0.3s;
+      overflow: hidden; /* This ensures the top line curves perfectly with the border-radius */
+      transition: all 0.3s ease;
     }
 
+    /* The glowing bold line at the very top */
     .edu-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
+      right: 0;
       width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #00f2fe, #4facfe); /* Cyan to blue glowing line */
-      opacity: 0;
-      transition: 0.3s ease;
+      height: 6px; /* Bolder line to match screenshot */
+      background: linear-gradient(90deg, #00f2fe, #4facfe); /* Cyan to blue */
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.3s ease;
+      z-index: 10;
     }
     
     .edu-card summary {
       list-style: none;
       cursor: pointer;
       padding: 24px;
+      position: relative;
+      z-index: 11;
     }
     
     .edu-card summary::-webkit-details-marker {
@@ -329,17 +334,20 @@
       animation: slideDown 0.3s ease;
     }
     
+    /* Open State Adjustments */
     .edu-card[open] {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      border-color: #38bdf8; /* Blue border on open */
+      box-shadow: 0 10px 40px rgba(0, 242, 254, 0.08); /* Subtle cyan glow below */
+      /* We leave the border dark so ONLY the top line is colored */
+      border-color: var(--border); 
     }
 
+    /* Shows the bold top line ONLY when clicked/open */
     .edu-card[open]::before {
-      opacity: 1; /* Shows the top blue line */
+      opacity: 1; 
     }
 
     .edu-card[open] .edu-content {
-      border-top: 1px solid rgba(255, 255, 255, 0.05); /* Divider line separating header from content */
+      border-top: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle divider line */
       padding-top: 20px;
     }
     
@@ -838,7 +846,7 @@
     const typeTarget = document.getElementById("typewriter");
 
     function typeEffect() {
-      if (!typeTarget) return; // Prevent errors if element is missing
+      if (!typeTarget) return; 
       
       const currentWord = words[i];
       
@@ -853,19 +861,18 @@
       let typingSpeed = isDeleting ? 50 : 100;
 
       if (!isDeleting && charIndex === currentWord.length) {
-        typingSpeed = 2000; // Pause at the end of the word
+        typingSpeed = 2000; 
         isDeleting = true;
       } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         i++;
         if (i >= words.length) i = 0;
-        typingSpeed = 500; // Pause before typing the next word
+        typingSpeed = 500; 
       }
 
       setTimeout(typeEffect, typingSpeed);
     }
 
-    // Start the typing effect after page load
     document.addEventListener("DOMContentLoaded", function() {
       setTimeout(typeEffect, 1000);
     });
