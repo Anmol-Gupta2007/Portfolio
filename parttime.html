@@ -136,26 +136,31 @@ body {
     transform: scale(1.02);
 }
 
-.tag-container {
+.tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 15px;
 }
 
+/* BLUE theme for Skills */
 .skill {
-    background: rgba(56,189,248,0.12);
-    color: #7dd3fc;
-    border: 1px solid rgba(56,189,248,0.35);
+    display: inline-block; 
+    white-space: nowrap;   
+    background: rgba(56, 189, 248, 0.15); /* Transparent blue background */
+    color: #38bdf8;                       /* Bright blue text */
+    border: 1px solid rgba(56, 189, 248, 0.4); /* Blue border */
     padding: 8px 14px;
     border-radius: 999px;
 }
 
-/* New style for red event tags */
+/* RED theme for Events Attended */
 .event-tag {
-    background: rgba(248, 113, 113, 0.12);
-    color: #fca5a5;
-    border: 1px solid rgba(248, 113, 113, 0.35);
+    display: inline-block; 
+    white-space: nowrap;   
+    background: rgba(239, 68, 68, 0.15);  /* Transparent red background */
+    color: #ef4444;                       /* Bright red text */
+    border: 1px solid rgba(239, 68, 68, 0.4);  /* Red border */
     padding: 8px 14px;
     border-radius: 999px;
 }
