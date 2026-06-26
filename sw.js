@@ -1,19 +1,18 @@
-const CACHE_NAME = 'anmol-portfolio-v6';
+const CACHE_NAME = 'anmol-portfolio-v7'; 
 
 const urlsToCache = [
-  '/Portfolio/',
-  '/Portfolio/index.html',
-  '/Portfolio/internships.html',
-  '/Portfolio/parttime.html',
-  '/Portfolio/ambassador.html',
-  '/Portfolio/manifest.json',
-  '/Portfolio/Image/photo.png'
+  './',
+  './index.html',
+  './internships.html',
+  './parttime.html',
+  './ambassador.html',
+  './manifest.json',
+  './Image/photo.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      // Fail-safe caching: if one file fails, the rest still cache and install
       return Promise.all(
         urlsToCache.map(url => {
           return cache.add(url).catch(err => {
@@ -23,14 +22,7 @@ self.addEventListener('install', event => {
       );
     })
   );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+  self.skipWaiting(); 
 });
 
 self.addEventListener('activate', event => {
@@ -45,5 +37,28 @@ self.addEventListener('activate', event => {
         })
       );
     })
+  );
+  self.clients.claim();
+});
+
+// --- THE NEW MAGIC: NETWORK-FIRST STRATEGY ---
+self.addEventListener('fetch', event => {
+  // Ignore non-http requests (like Chrome extensions)
+  if (!event.request.url.startsWith('http')) return;
+
+  event.respondWith(
+    // 1. Try to fetch the fresh file from GitHub (The Network)
+    fetch(event.request)
+      .then(networkResponse => {
+        // 2. If successful, update the cache with this new fresh version
+        return caches.open(CACHE_NAME).then(cache => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse; // Show the fresh website
+        });
+      })
+      .catch(() => {
+        // 3. If the user is offline (fetch fails), show them the saved PWA cache
+        return caches.match(event.request);
+      })
   );
 });
