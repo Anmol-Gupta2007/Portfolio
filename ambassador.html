@@ -103,7 +103,7 @@ body {
 
 .project-content {
     /* The values are: top right bottom left */
-    padding: 0px 30px 45px 30px; 
+    padding: 0px 16px 25px 16px; 
 }
 
 .project-title {
@@ -114,19 +114,21 @@ body {
 /* Flexible Image Gallery Styles */
 .image-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Reduced from 280px to 200px to make the images smaller */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
-    margin-top: 0; /* Removes double-spacing since h3 now handles the gap */
+    margin-top: 0;
     width: 100%;
     max-width: 900px;
 }
 
 .gallery-img {
     width: 100%;
-    height: auto;
+    height: 300px; /* Forces every image to be exactly the same height */
     border-radius: 12px;
     border: 3px solid #38bdf8;
-    object-fit: cover;
+    background-color: rgba(0, 0, 0, 0.2); /* Adds a subtle dark background behind narrower images */
+    object-fit: contain; /* Ensures the FULL image is visible without cropping */
     transition: transform 0.3s ease;
 }
 
