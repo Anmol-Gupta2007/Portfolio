@@ -505,6 +505,44 @@
       100% { transform: rotate(360deg); }
     }
 
+
+/* --- SECTION HEADER WITH 'VIEW ALL' LINK --- */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+    }
+
+    .section-header .section-title {
+      margin-bottom: 0;
+    }
+
+    .view-all-link {
+      color: #fb923c; /* Orange color matching your image */
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .view-all-link:hover {
+      color: #fdba74; /* Lighter orange on hover */
+      text-decoration: none;
+      transform: translateX(4px); /* Slides the arrow slightly to the right */
+    }
+    
+    @media (max-width: 500px) {
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+    
+    
     /* --- NEW SKILLS LAYOUT STYLES --- */
     .skills-grid {
       display: grid;
@@ -680,8 +718,10 @@
         <a href="#about">ABOUT</a>
         <a href="#education">EDUCATION</a>
         <a href="#experience">EXPERIENCE</a>
+        <a href="#experience">HACKATHON</a>
         <a href="#skills">SKILLS</a>
         <a href="#projects">PROJECTS</a>
+        <a href="#experience">CERTIFICATION</a>
         <a href="#contact">CONTACT</a>
       </nav>
     </div>
@@ -867,6 +907,30 @@
       </div>
     </section>
 
+
+    <!-- HACKATHON SECTION -->
+    <section id="hackathon">
+      <div class="container">
+        <h2 class="section-title">Hackathons</h2>
+        <div class="grid">
+          
+          <a href="Hackathon/etai.html" class="card">
+            <h3>ET AI Hackathon</h3>
+            <p>Participated as a Team Leader. Focused on rapid prototyping, innovative problem-solving, and building AI-driven solutions under time constraints.</p>
+          </a>
+
+          <a href="Hackathon/graphethon.html" class="card">
+            <h3>Graph-E-Thon 3.0</h3>
+            <p>Competed as a team member. Collaborated with peers to conceptualize and develop a dynamic tech project during this intensive coding event.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+   
+
+    
     <section id="skills">
       <div class="container">
         <h2 class="section-title">Skills</h2>
@@ -1049,7 +1113,51 @@
       </div>
     </section>
 
+    
+ <!-- CERTIFICATION SECTION -->
+    <section id="certification">
+      <div class="container">
+        
+        <div class="section-header">
+          <h2 class="section-title">Certifications</h2>
+          <a href="certifications.html" class="view-all-link">ALL CERTIFICATIONS &rarr;</a>
+        </div>
 
+        <div class="grid">
+          
+          <div class="card">
+            <h3>Generative AI Foundations</h3>
+            <p>Completed comprehensive certification through upGrad, focusing on the core principles, models, and real-world applications of Generative AI.</p>
+          </div>
+
+          <div class="card">
+            <h3>TCS iON Masterclasses</h3>
+            <p>Completed specialized masterclass modules to enhance industry-relevant technical knowledge and professional aptitude.</p>
+          </div>
+
+          <div class="card">
+            <h3>Power BI Specialization</h3>
+            <p>Gained practical skills in data analysis, visualization, and creating interactive dashboards using Microsoft Power BI.</p>
+          </div>
+
+          <div class="card">
+            <h3>Wadhwani Skilling</h3>
+            <p>Participated in professional skilling and development programs focused on core employability and 21st-century workplace skills.</p>
+          </div>
+
+          <div class="card">
+            <h3>Google Cloud Computing Basics</h3>
+            <p>Explored cloud infrastructure, scaling applications, and managing data effectively within the Google Cloud ecosystem.</p>
+          </div>
+
+          <div class="card">
+            <h3>Python Data Structures</h3>
+            <p>Advanced study in Python programming, focusing on efficient data handling, algorithms, and logical problem solving.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
     
 
     <section id="contact">
