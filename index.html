@@ -277,7 +277,7 @@
     
     /* Open State Adjustments */
     .edu-card[open] {
-      background: #2b3b4e; /* The lighter blue-slate color from your image */
+      background: #1f2937; /* Changed from the bright color back to normal dark slate */
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       border-color: #4b5563; /* Subtle border change */
     }
@@ -508,7 +508,8 @@
     /* --- NEW SKILLS LAYOUT STYLES --- */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      /* 1fr for the first 3 cards, and 1.6fr makes the 4th card 60% wider! */
+      grid-template-columns: 1fr 1fr 1fr 1.6fr; 
       gap: 20px;
     }
     
@@ -617,10 +618,20 @@
     }
 
     @media (max-width: 800px) {
+      /* ADD THIS NEW BLOCK HERE */
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      /* ----------------------- */
+
       .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
       }
+      
+      /* ... rest of your mobile styles ... */
+      
+      
       .nav {
         justify-content: center;
       }
@@ -987,25 +998,59 @@
       </div>
     </section>
 
-    <section id="projects">
+   <section id="projects">
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <div class="grid">
-          <div class="card">
+
+          <!-- Project 1 -->
+          <a href="portfolio.html" class="card">
+            <h3>Personal Portfolio PWA</h3>
+            <p>A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.</p>
+          </a>
+
+           <!-- Project 2 -->
+          <a href="cafeteria.html" class="card">
+            <h3>Cafeteria Management System</h3>
+            <p>A management system project that optimizes daily cafeteria operations through efficient and structured programming.</p>
+          </a>
+
+          
+          <!-- Project 3 -->
+          <a href="project-c-practice.html" class="card">
+            <h3>TiltGuard - Anti-Theft Tilt Detection System </h3>
+            <p>Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.</p>
+          </a>
+
+          
+          <!-- Project 4 -->
+          <a href="project-dustbin.html" class="card">
             <h3>Automatic Sensor-Based Dustbin</h3>
             <p>An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.</p>
-          </div>
-          <div class="card">
-            <h3>Cafeteria Management System</h3>
-            <p>A management system project for handling menu items, ordering, and basic service workflow.</p>
-          </div>
-          <div class="card">
-            <h3>C Programming Practice</h3>
-            <p>Projects and exercises involving strings, pointers, arrays, and logic-building to strengthen core coding skills.</p>
-          </div>
+          </a>
+          
+          <!--
+          
+          <!-- Project 5 -->
+          <a href="project-hackathons.html" class="card">
+            <h3>Hackathon Builds</h3>
+            <p>Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.</p>
+          </a>
+
+          <!-- Project 6 -->
+          <a href="project-ai.html" class="card">
+            <h3>Generative AI Explorations</h3>
+            <p>Research and practical explorations into large language models, transformer architectures, and implementing Agentic AI workflows.</p>
+          </a>
+
+          -->
+          
         </div>
       </div>
     </section>
+
+
+    
 
     <section id="contact">
       <div class="container">
