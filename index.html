@@ -189,9 +189,10 @@
       margin-bottom: 18px;
     }
 
+    /* Fixed 3-column grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -411,7 +412,7 @@
       align-items: center;
       text-align: center;
       padding: 0 20px;
-      border-right: 1px solid #38bdf8; /* Change #38bdf8 to your desired color */
+      border-right: 1px solid #38bdf8;
       flex: 1;
     }
     
@@ -655,6 +656,12 @@
       color: #e5e7eb;
     }
 
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 800px) {
       /* ADD THIS NEW BLOCK HERE */
       .skills-grid {
@@ -708,6 +715,12 @@
         margin-top: 30px;
       }
     }
+    
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -718,10 +731,10 @@
         <a href="#about">ABOUT</a>
         <a href="#education">EDUCATION</a>
         <a href="#experience">EXPERIENCE</a>
-        <a href="#experience">HACKATHON</a>
+        <a href="#hackathon">HACKATHON</a>
         <a href="#skills">SKILLS</a>
         <a href="#projects">PROJECTS</a>
-        <a href="#experience">CERTIFICATION</a>
+        <a href="#certification">CERTIFICATION</a>
         <a href="#contact">CONTACT</a>
       </nav>
     </div>
@@ -747,7 +760,7 @@
           </p>
 
           <div class="buttons">
-            <a class="btn primary" href="#projects">→ View Projects</a>
+            <a class="btn primary" href="#projects">View Projects</a>
             <a class="btn secondary" href="#contact">💬 Contact Me</a>
           </div>
 
@@ -908,7 +921,6 @@
     </section>
 
 
-    <!-- HACKATHON SECTION -->
     <section id="hackathon">
       <div class="container">
         <h2 class="section-title">Hackathons</h2>
@@ -1067,41 +1079,33 @@
         <h2 class="section-title">Projects</h2>
         <div class="grid">
 
-          <!-- Project 1 -->
           <a href="portfolio.html" class="card">
             <h3>Personal Portfolio PWA</h3>
             <p>A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.</p>
           </a>
 
-           <!-- Project 2 -->
-          <a href="cafeteria.html" class="card">
+           <a href="cafeteria.html" class="card">
             <h3>Cafeteria Management System</h3>
             <p>A management system project that optimizes daily cafeteria operations through efficient and structured programming.</p>
           </a>
 
           
-          <!-- Project 3 -->
           <a href="tiltguard.html" class="card">
             <h3>TiltGuard - Anti-Theft Tilt Detection System </h3>
             <p>Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.</p>
           </a>
 
           
-          <!-- Project 4 -->
           <a href="dustbin.html" class="card">
             <h3>Automatic Sensor-Based Dustbin</h3>
             <p>An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.</p>
           </a>
                 
-          <!-- Project 5 -->
           <a href="management.html" class="card">
             <h3>Student Management System</h3>
             <p>Centralized Student Data Management, Efficient Record Handling, Automation of Administrative Tasks, Data Accuracy and Consistency, User-Friendly Interface, Secure Data Storage.</p>
           </a>
 
-          <!--
-          
-          <!-- Project 6 -->
           <a href="project-ai.html" class="card">
             <h3>Generative AI Explorations</h3>
             <p>Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.</p>
@@ -1114,8 +1118,7 @@
     </section>
 
     
- <!-- CERTIFICATION SECTION -->
-    <section id="certification">
+ <section id="certification">
       <div class="container">
         
         <div class="section-header">
