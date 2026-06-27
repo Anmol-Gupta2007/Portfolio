@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    :root {
+      --bg-dark: #0a0b10;
+      --input-bg: #13151f;
+      --border-color: #1f2232;
+      --text-muted: #565b76;
+      --text-light: #e2e8f0;
+      --gradient-start: #00f2fe;
+      --gradient-end: #4facfe;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      /* Subtle radial gradient to mimic the glow in the image */
+      background-image: radial-gradient(circle at top left, rgba(0, 242, 254, 0.05), transparent 40%);
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+      color: var(--text-light);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--text-muted);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      color: #000;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2);
+    }
+
+    /* Message styling for successful submission */
+    #status-msg {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #4ade80;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-container">
+    <form id="contact-form" name="google-sheet-form">
+      
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Hey Anmol, I wanted to reach out about..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submit-btn">
+        <span>Send Message</span>
+        <svg fill="currentColor" viewBox="0 0 24 24" width="20" height="20">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+
+      <div id="status-msg">Message sent successfully!</div>
+    </form>
+  </div>
+
+  <script>
+    // PASTE YOUR WEB APP URL HERE
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzkl5dxyeN9X34p2D-BieSgSuWLik2mRX8TovCgukDCIhWkc7vKLmUyjGye9bn3HkDx/exec';
+    
+    const form = document.forms['google-sheet-form'];
+    const btn = document.getElementById('submit-btn');
+    const statusMsg = document.getElementById('status-msg');
+    const originalBtnContent = btn.innerHTML;
+
+    form.addEventListener('submit', e => {
+      e.preventDefault(); // Prevents the page from refreshing
+      
+      // Change button state to show loading
+      btn.innerHTML = 'Sending...';
+      btn.style.opacity = '0.7';
+
+      // Send the data securely via POST request
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          // Success State
+          statusMsg.style.display = 'block';
+          form.reset();
+          btn.innerHTML = originalBtnContent;
+          btn.style.opacity = '1';
+          
+          // Hide success message after 4 seconds
+          setTimeout(() => {
+            statusMsg.style.display = 'none';
+          }, 4000);
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          btn.innerHTML = 'Error. Try Again.';
+          btn.style.opacity = '1';
+          
+          setTimeout(() => {
+            btn.innerHTML = originalBtnContent;
+          }, 3000);
+        });
+    });
+  </script>
+
+</body>
+</html>
