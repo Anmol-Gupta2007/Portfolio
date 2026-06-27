@@ -6,11 +6,11 @@
   <title>Contact Form</title>
   <style>
     :root {
-      --bg-dark: #06080d; /* Very dark background */
-      --box-bg: #111420; /* Contrasting form box color */
+      --bg-dark: #06080d;
+      --box-bg: #111420; 
       --input-bg: #151722;
       --border-color: #1f2232;
-      --text-muted: #62728a; /* Blue-ish gray for labels */
+      --text-muted: #62728a; 
       --text-light: #e2e8f0;
       --gradient-start: #00f2fe;
       --gradient-end: #4facfe;
@@ -33,7 +33,6 @@
       padding: 20px;
     }
 
-    /* New contrasting box wrapper */
     .form-box {
       width: 100%;
       max-width: 550px;
@@ -42,7 +41,29 @@
       border-radius: 16px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative; /* Added for proper internal spacing */
     }
+
+    /* --- NEW BACK LINK STYLES --- */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--gradient-end);
+      transform: translateX(-4px); /* Slight slide animation on hover */
+    }
+    /* ---------------------------- */
 
     .form-group {
       margin-bottom: 24px;
@@ -71,7 +92,7 @@
     }
 
     input::placeholder, textarea::placeholder {
-      color: #3b4255; /* Darker placeholder to match image */
+      color: #3b4255; 
     }
 
     input:focus, textarea:focus {
@@ -117,8 +138,15 @@
 </head>
 <body>
 
-  <!-- The contrasting box -->
   <div class="form-box">
+    
+    <a href="index.html" class="back-link">
+      <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
+        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+      </svg>
+      Back to Portfolio
+    </a>
+    
     <form id="contact-form" name="google-sheet-form">
       
       <div class="form-group">
@@ -148,7 +176,6 @@
   </div>
 
   <script>
-    // PASTE YOUR NEW WEB APP URL HERE
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzkl5dxyeN9X34p2D-BieSgSuWLik2mRX8TovCgukDCIhWkc7vKLmUyjGye9bn3HkDx/exec';
     
     const form = document.forms['google-sheet-form'];
