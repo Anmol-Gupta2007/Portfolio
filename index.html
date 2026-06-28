@@ -643,7 +643,7 @@
     .icon-green { background: linear-gradient(135deg, #4ade80, #22c55e); box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
     .icon-yellow { background: linear-gradient(135deg, #fde047, #eab308); box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
     .icon-red { background: linear-gradient(135deg, #f87171, #ef4444); box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
-    .icon-silver { background: linear-gradient(135deg, #e5e7eb, #9ca3af); box-shadow: 0 0 15px rgba(156, 163, 175, 0.4); }
+   .icon-pink { background: linear-gradient(135deg, #f472b6, #db2777); box-shadow: 0 0 15px rgba(219, 39, 119, 0.4); }
     .icon-golden { background: linear-gradient(135deg, #fef08a, #d97706); box-shadow: 0 0 15px rgba(217, 119, 6, 0.4); }
     .icon-orange { background: linear-gradient(135deg, #fb923c, #f97316); box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); }
 
@@ -711,20 +711,23 @@
       gap: 10px;
     }
     
-    .soft-skill-tag {
-      padding: 6px 14px;
-      background: transparent;
-      border: 1px solid #374151;
-      border-radius: 999px;
-      color: #9ca3af;
-      font-size: 0.85rem;
-      transition: 0.3s;
-    }
-    
-    .soft-skill-tag:hover {
-      border-color: #6b7280;
-      color: #e5e7eb;
-    }
+   .soft-skill-tag {
+  padding: 6px 14px;
+  background: rgba(59, 130, 246, 0.05); /* Very subtle blue background */
+  border: 1px solid rgba(56, 189, 248, 0.3); /* Soft blue border */
+  border-radius: 999px;
+  color: #93c5fd; /* Light blue text */
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.soft-skill-tag:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8; /* Bright blue border on hover */
+  color: #ffffff; /* Text turns white on hover */
+  transform: translateY(-2px);
+}
 
     @media (max-width: 900px) {
       .grid {
@@ -1068,6 +1071,8 @@
               </div>
             </div>
           </div>
+
+
           
           <!-- Card 2: Blue Icon + fill-soft -->
           <div class="skill-card">
@@ -1106,6 +1111,19 @@
             </div>
           </div>
 
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Data Structure</span>
+                  <span class="skill-level">Basic</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-soft" style="width: 40%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
           <!-- Card 3: Yellow Icon + fill-tech -->
           <div class="skill-card">
             <div class="skill-icon icon-yellow"></div>
@@ -1153,6 +1171,60 @@
             </div>
           </div>
 
+             <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Software Development</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-tech" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Debugger</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-tech" style="width: 80%;"></div>
+                </div>
+              </div>
+
+             <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Logical Thinking</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-tech" style="width: 80%;"></div>
+                </div>
+              </div>
+
+            <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Generative AI</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-tech" style="width: 80%;"></div>
+                </div>
+              </div>
+
+               <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Data Analysis</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-tech" style="width: 80%;"></div>
+                </div>
+              </div>
+
+
+
+
+     
           <!-- Card 4: Red Icon + fill-design -->
           <div class="skill-card">
             <div class="skill-icon icon-red"></div>
@@ -1210,9 +1282,11 @@
             </div>
           </div>
 
+
+      
           <!-- Card 5: Silver Icon + fill-lead -->
           <div class="skill-card">
-            <div class="skill-icon icon-silver"></div>
+            <div class="skill-icon icon-pink"></div>
             <h3>Leadership & Management Skills</h3>
             <div class="skill-list">
               <div class="skill-item">
@@ -1256,56 +1330,24 @@
               </div>
             </div>
           </div>
+.
 
-          <!-- Card 6: Golden Icon + fill-core -->
-          <div class="skill-card">
-            <div class="skill-icon icon-golden"></div>
-            <h3>Core Skills</h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Problem Solving</span>
-                  <span class="skill-level">Strong</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-core" style="width: 85%;"></div>
-                </div>
-              </div>
-              
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Logical Thinking</span>
-                  <span class="skill-level">Strong</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-core" style="width: 80%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Debugging</span>
-                  <span class="skill-level">Good</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-core" style="width: 70%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Card 7: Orange Icon -->
+      
+             
+          <!-- Card 6: Orange Icon -->
           <div class="skill-card">
             <div class="skill-icon icon-orange"></div>
             <h3>Soft Skills</h3>
             <div class="soft-skills-container">
-              <span class="soft-skill-tag">Team Management</span>
-              <span class="soft-skill-tag">Communication</span>
-              <span class="soft-skill-tag">Leadership</span>
-              <span class="soft-skill-tag">Time Management</span>
-              <span class="soft-skill-tag">Consistency</span>
-              <span class="soft-skill-tag">Adaptability</span>
-              </div>
+         <span class="soft-skill-tag">Communication</span>
+           <span class="soft-skill-tag">Decision Making</span>
+         <span class="soft-skill-tag">Consistency</span>
+         <span class="soft-skill-tag">Adaptability</span>
+       <span class="soft-skill-tag">Presentation Skills</span>
+        <span class="soft-skill-tag">Public Speaking</span>
+        <span class="soft-skill-tag">Innovation and Creativity</span>
+       <span class="soft-skill-tag">Problem Solving</span>
+     </div>
           </div>
 
         </div>
