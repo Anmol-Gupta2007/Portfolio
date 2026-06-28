@@ -208,7 +208,6 @@
       text-shadow: 0 0 15px rgba(192, 38, 211, 0.7); 
     }
 
-    /* STANDARD GRID FOR ALL OTHER SECTIONS */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -611,10 +610,11 @@
       }
     }
     
-    /* --- MASONRY LAYOUT FOR SKILLS SECTION ONLY --- */
+    /* --- SKILLS GRID SPECIFIC CSS --- */
     .skills-grid {
-      column-count: 3;
-      column-gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+      gap: 20px;
     }
     
     .skill-card {
@@ -623,10 +623,9 @@
       border-radius: 16px;
       padding: 30px 24px;
       transition: 0.3s;
-      display: inline-block; /* Helps prevent column breaks in some browsers */
-      width: 100%;
-      break-inside: avoid; /* Prevents cards from splitting across columns */
-      margin-bottom: 20px; /* Spacing between stacked masonry items */
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Ensures equal height per row automatically */
     }
     
     .skill-card:hover {
@@ -715,35 +714,35 @@
     }
     
    .soft-skill-tag {
-  padding: 6px 14px;
-  background: rgba(59, 130, 246, 0.05); /* Very subtle blue background */
-  border: 1px solid rgba(56, 189, 248, 0.3); /* Soft blue border */
-  border-radius: 999px;
-  color: #93c5fd; /* Light blue text */
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
-  cursor: default;
-}
+      padding: 6px 14px;
+      background: rgba(59, 130, 246, 0.05); /* Very subtle blue background */
+      border: 1px solid rgba(56, 189, 248, 0.3); /* Soft blue border */
+      border-radius: 999px;
+      color: #93c5fd; /* Light blue text */
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
 
-.soft-skill-tag:hover {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: #38bdf8; /* Bright blue border on hover */
-  color: #ffffff; /* Text turns white on hover */
-  transform: translateY(-2px);
-}
+    .soft-skill-tag:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8; /* Bright blue border on hover */
+      color: #ffffff; /* Text turns white on hover */
+      transform: translateY(-2px);
+    }
 
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
       .skills-grid {
-        column-count: 2;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 800px) {
       .skills-grid {
-        column-count: 1;
+        grid-template-columns: 1fr;
       }
 
       .hero-grid {
@@ -1021,6 +1020,7 @@
         
         <div class="skills-grid">
           
+          <!-- ROW 1 (Programming, Software, Technical) -->
           <div class="skill-card">
             <div class="skill-icon icon-green"></div>
             <h3>Programming</h3>
@@ -1077,8 +1077,6 @@
             </div>
           </div>
 
-
-          
           <div class="skill-card">
             <div class="skill-icon icon-blue"></div>
             <h3>Software Development</h3>
@@ -1124,7 +1122,6 @@
               </div>
             </div>
           </div>
-
           
           <div class="skill-card">
             <div class="skill-icon icon-yellow"></div>
@@ -1222,7 +1219,54 @@
             </div>
           </div>
 
-      
+
+          <!-- ROW 2 (Leadership, Design, Soft Skills) -->
+          <div class="skill-card">
+            <div class="skill-icon icon-pink"></div>
+            <h3>Leadership & Management Skills</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Decision Making</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-lead" style="width: 70%;"></div>
+                </div>
+              </div>
+              
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Leadership</span>
+                  <span class="skill-level">Proficient</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-lead" style="width: 80%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Team Management</span>
+                  <span class="skill-level">Basic</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-lead" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Time Management</span>
+                  <span class="skill-level">Basic</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill fill-lead" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="skill-card">
             <div class="skill-icon icon-red"></div>
             <h3>Design & Productivity Tools</h3>
@@ -1278,67 +1322,20 @@
               </div>
             </div>
           </div>
-
-      
-          <div class="skill-card">
-            <div class="skill-icon icon-pink"></div>
-            <h3>Leadership & Management Skills</h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Decision Making</span>
-                  <span class="skill-level">Proficient</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-lead" style="width: 70%;"></div>
-                </div>
-              </div>
-              
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Leadership</span>
-                  <span class="skill-level">Proficient</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-lead" style="width: 80%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Team Management</span>
-                  <span class="skill-level">Basic</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-lead" style="width: 90%;"></div>
-                </div>
-              </div>
-
-              <div class="skill-item">
-                <div class="skill-info">
-                  <span class="skill-name">Time Management</span>
-                  <span class="skill-level">Basic</span>
-                </div>
-                <div class="progress-track">
-                  <div class="progress-fill fill-lead" style="width: 90%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
               
           <div class="skill-card">
             <div class="skill-icon icon-orange"></div>
             <h3>Soft Skills</h3>
             <div class="soft-skills-container">
-         <span class="soft-skill-tag">Communication</span>
-           <span class="soft-skill-tag">Decision Making</span>
-         <span class="soft-skill-tag">Consistency</span>
-         <span class="soft-skill-tag">Adaptability</span>
-       <span class="soft-skill-tag">Presentation Skills</span>
-        <span class="soft-skill-tag">Public Speaking</span>
-        <span class="soft-skill-tag">Innovation and Creativity</span>
-       <span class="soft-skill-tag">Problem Solving</span>
-     </div>
+              <span class="soft-skill-tag">Communication</span>
+              <span class="soft-skill-tag">Decision Making</span>
+              <span class="soft-skill-tag">Consistency</span>
+              <span class="soft-skill-tag">Adaptability</span>
+              <span class="soft-skill-tag">Presentation Skills</span>
+              <span class="soft-skill-tag">Public Speaking</span>
+              <span class="soft-skill-tag">Innovation and Creativity</span>
+              <span class="soft-skill-tag">Problem Solving</span>
+            </div>
           </div>
 
         </div>
