@@ -208,6 +208,7 @@
       text-shadow: 0 0 15px rgba(192, 38, 211, 0.7); 
     }
 
+    /* STANDARD GRID FOR ALL OTHER SECTIONS */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -622,10 +623,10 @@
       border-radius: 16px;
       padding: 30px 24px;
       transition: 0.3s;
-      display: flex;
-      flex-direction: column;
+      display: inline-block; /* Helps prevent column breaks in some browsers */
+      width: 100%;
       break-inside: avoid; /* Prevents cards from splitting across columns */
-      margin-bottom: 20px; /* Spacing between masonry items */
+      margin-bottom: 20px; /* Spacing between stacked masonry items */
     }
     
     .skill-card:hover {
