@@ -196,12 +196,15 @@
       align-items: center;
     }
 
+    /* --- ENLARGED ARROW SIZE --- */
     .section-title::before {
       content: '>';
       color: var(--neon-purple);
       margin-right: 12px;
       font-family: 'Courier New', Courier, monospace; 
       font-weight: 900;
+      font-size: 1.4em; /* Made arrow much larger */
+      line-height: 0.8; /* Prevents vertical stretching */
       text-shadow: 0 0 15px rgba(192, 38, 211, 0.7); 
     }
 
@@ -458,10 +461,10 @@
       50% { opacity: 0; }
     }
 
-    /* --- MULTICOLOR STATS BOX BORDER --- */
+    /* --- STATS BOX FIXED (Dark Inside, Colorful Border) --- */
     .stats-box {
       display: flex;
-      background: linear-gradient(rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.6)) padding-box,
+      background: linear-gradient(#111827, #111827) padding-box,
                   linear-gradient(90deg, #38bdf8, #22c55e, #eab308, #ef4444, #c026d3) border-box;
       border: 2px solid transparent;
       border-radius: 16px;
@@ -635,7 +638,7 @@
       margin-bottom: 20px;
     }
     
-    /* --- NEW 7 UNIQUE CIRCLE COLORS --- */
+    /* Unique Circle Colors */
     .icon-blue { background: linear-gradient(135deg, #60a5fa, #3b82f6); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
     .icon-green { background: linear-gradient(135deg, #4ade80, #22c55e); box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
     .icon-yellow { background: linear-gradient(135deg, #fde047, #eab308); box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); }
@@ -689,12 +692,18 @@
       overflow: hidden;
     }
     
-    /* --- MULTICOLOR PROGRESS BARS --- */
     .progress-fill {
       height: 100%;
       border-radius: 999px;
-      background: linear-gradient(90deg, #38bdf8, #22c55e, #eab308, #ef4444, #c026d3) !important;
     }
+    
+    /* --- NEW SPECIFIC BAR GRADIENTS MATCHING YOUR IMAGE --- */
+    .fill-prog { background: linear-gradient(90deg, #4ade80, #3b82f6); }  /* Green to Blue */
+    .fill-soft { background: linear-gradient(90deg, #3b82f6, #a855f7); }  /* Blue to Purple */
+    .fill-tech { background: linear-gradient(90deg, #eab308, #ef4444); }  /* Yellow to Red */
+    .fill-design { background: linear-gradient(90deg, #ef4444, #c026d3); }/* Red to Purple */
+    .fill-lead { background: linear-gradient(90deg, #9ca3af, #60a5fa); }  /* Silver to Light Blue */
+    .fill-core { background: linear-gradient(90deg, #a855f7, #ec4899); }  /* Purple to Pink */
 
     .soft-skills-container {
       display: flex;
@@ -1003,8 +1012,9 @@
         
         <div class="skills-grid">
           
+          <!-- Card 1: Green Icon + fill-prog -->
           <div class="skill-card">
-            <div class="skill-icon icon-blue"></div>
+            <div class="skill-icon icon-green"></div>
             <h3>Programming</h3>
             <div class="skill-list">
               <div class="skill-item">
@@ -1013,7 +1023,7 @@
                   <span class="skill-level">Advanced</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 50%;"></div>
+                  <div class="progress-fill fill-prog" style="width: 50%;"></div>
                 </div>
               </div>
               
@@ -1023,7 +1033,7 @@
                   <span class="skill-level">Intermediate</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-prog" style="width: 85%;"></div>
                 </div>
               </div>
 
@@ -1033,7 +1043,7 @@
                   <span class="skill-level">Intermediate</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 90%;"></div>
+                  <div class="progress-fill fill-prog" style="width: 90%;"></div>
                 </div>
               </div>
               
@@ -1043,7 +1053,7 @@
                   <span class="skill-level">Learning</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 50%;"></div>
+                  <div class="progress-fill fill-prog" style="width: 50%;"></div>
                 </div>
               </div>
 
@@ -1053,14 +1063,15 @@
                   <span class="skill-level">Learning</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 30%;"></div>
+                  <div class="progress-fill fill-prog" style="width: 30%;"></div>
                 </div>
               </div>
             </div>
           </div>
           
+          <!-- Card 2: Blue Icon + fill-soft -->
           <div class="skill-card">
-            <div class="skill-icon icon-green"></div>
+            <div class="skill-icon icon-blue"></div>
             <h3>Software Development</h3>
             <div class="skill-list">
               <div class="skill-item">
@@ -1069,7 +1080,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 40%;"></div>
+                  <div class="progress-fill fill-soft" style="width: 40%;"></div>
                 </div>
               </div>
               
@@ -1079,7 +1090,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 40%;"></div>
+                  <div class="progress-fill fill-soft" style="width: 40%;"></div>
                 </div>
               </div>
 
@@ -1089,12 +1100,13 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 40%;"></div>
+                  <div class="progress-fill fill-soft" style="width: 40%;"></div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Card 3: Yellow Icon + fill-tech -->
           <div class="skill-card">
             <div class="skill-icon icon-yellow"></div>
             <h3>Technical Skills</h3>
@@ -1105,7 +1117,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 70%;"></div>
+                  <div class="progress-fill fill-tech" style="width: 70%;"></div>
                 </div>
               </div>
               
@@ -1115,7 +1127,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 80%;"></div>
+                  <div class="progress-fill fill-tech" style="width: 80%;"></div>
                 </div>
               </div>
 
@@ -1125,7 +1137,7 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-tech" style="width: 85%;"></div>
                 </div>
               </div>
 
@@ -1135,12 +1147,13 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-tech" style="width: 85%;"></div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Card 4: Red Icon + fill-design -->
           <div class="skill-card">
             <div class="skill-icon icon-red"></div>
             <h3>Design & Productivity Tools</h3>
@@ -1151,7 +1164,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 70%;"></div>
+                  <div class="progress-fill fill-design" style="width: 70%;"></div>
                 </div>
               </div>
               
@@ -1161,7 +1174,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 80%;"></div>
+                  <div class="progress-fill fill-design" style="width: 80%;"></div>
                 </div>
               </div>
 
@@ -1171,7 +1184,7 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-design" style="width: 85%;"></div>
                 </div>
               </div>
 
@@ -1181,7 +1194,7 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-design" style="width: 85%;"></div>
                 </div>
               </div>
 
@@ -1191,12 +1204,13 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-design" style="width: 85%;"></div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Card 5: Silver Icon + fill-lead -->
           <div class="skill-card">
             <div class="skill-icon icon-silver"></div>
             <h3>Leadership & Management Skills</h3>
@@ -1207,7 +1221,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 70%;"></div>
+                  <div class="progress-fill fill-lead" style="width: 70%;"></div>
                 </div>
               </div>
               
@@ -1217,7 +1231,7 @@
                   <span class="skill-level">Proficient</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 80%;"></div>
+                  <div class="progress-fill fill-lead" style="width: 80%;"></div>
                 </div>
               </div>
 
@@ -1227,7 +1241,7 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 90%;"></div>
+                  <div class="progress-fill fill-lead" style="width: 90%;"></div>
                 </div>
               </div>
 
@@ -1237,12 +1251,13 @@
                   <span class="skill-level">Basic</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 90%;"></div>
+                  <div class="progress-fill fill-lead" style="width: 90%;"></div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Card 6: Golden Icon + fill-core -->
           <div class="skill-card">
             <div class="skill-icon icon-golden"></div>
             <h3>Core Skills</h3>
@@ -1253,7 +1268,7 @@
                   <span class="skill-level">Strong</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 85%;"></div>
+                  <div class="progress-fill fill-core" style="width: 85%;"></div>
                 </div>
               </div>
               
@@ -1263,7 +1278,7 @@
                   <span class="skill-level">Strong</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 80%;"></div>
+                  <div class="progress-fill fill-core" style="width: 80%;"></div>
                 </div>
               </div>
 
@@ -1273,12 +1288,13 @@
                   <span class="skill-level">Good</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width: 70%;"></div>
+                  <div class="progress-fill fill-core" style="width: 70%;"></div>
                 </div>
               </div>
             </div>
           </div>
           
+          <!-- Card 7: Orange Icon -->
           <div class="skill-card">
             <div class="skill-icon icon-orange"></div>
             <h3>Soft Skills</h3>
