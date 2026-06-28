@@ -610,7 +610,7 @@
       }
     }
     
-    /* --- MASONRY LAYOUT FOR SKILLS SECTION ONLY --- */
+    /* MASONRY STYLES ONLY APPLIED TO SKILLS */
     .skills-grid {
       column-count: 3;
       column-gap: 20px;
@@ -625,7 +625,7 @@
       display: flex;
       flex-direction: column;
       break-inside: avoid; /* Prevents cards from splitting across columns */
-      margin-bottom: 20px; /* Adds vertical spacing between stacked cards */
+      margin-bottom: 20px; /* Spacing between stacked masonry cards */
     }
     
     .skill-card:hover {
@@ -736,13 +736,13 @@
         grid-template-columns: repeat(2, 1fr);
       }
       .skills-grid {
-        column-count: 2; /* Smoothly adapt the masonry layout */
+        column-count: 2; /* Updated for skills masonry */
       }
     }
 
     @media (max-width: 800px) {
       .skills-grid {
-        column-count: 1; /* Masonry becomes a single column on mobile */
+        column-count: 1; /* Updated for skills masonry */
       }
 
       .hero-grid {
