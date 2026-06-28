@@ -6,7 +6,6 @@
   <title>Anmol Gupta | Portfolio</title>
   
   <link rel="icon" type="image/png" href="photo.png">
-
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0f172a">
   
@@ -208,10 +207,10 @@
       text-shadow: 0 0 15px rgba(192, 38, 211, 0.7); 
     }
 
+    /* --- MASONRY LAYOUT UPDATES --- */
     .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      column-count: 3;
+      column-gap: 18px;
     }
 
     .card {
@@ -219,6 +218,10 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 22px;
+      margin-bottom: 18px;
+      break-inside: avoid;
+      display: inline-block;
+      width: 100%;
       transition: 0.3s;
     }
     
@@ -729,9 +732,10 @@
   transform: translateY(-2px);
 }
 
+    /* --- RESPONSIVE UPDATES FOR MASONRY LAYOUT --- */
     @media (max-width: 900px) {
       .grid {
-        grid-template-columns: repeat(2, 1fr);
+        column-count: 2;
       }
     }
 
@@ -786,7 +790,7 @@
     
     @media (max-width: 600px) {
       .grid {
-        grid-template-columns: 1fr;
+        column-count: 1;
       }
     }
   </style>
@@ -1216,7 +1220,7 @@
             </div>
           </div>
 
-     
+      
           <div class="skill-card">
             <div class="skill-icon icon-red"></div>
             <h3>Design & Productivity Tools</h3>
@@ -1319,7 +1323,7 @@
               </div>
             </div>
           </div>
-             
+              
           <div class="skill-card">
             <div class="skill-icon icon-orange"></div>
             <h3>Soft Skills</h3>
