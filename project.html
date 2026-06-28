@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol Gupta | All Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg,#020617,#0f172a);
+            color: #e5e7eb;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            width: min(1200px, 100%);
+            margin: auto;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-btn:hover { color: white; }
+        
+        .page-title { font-size: 2.5rem; margin-bottom: 40px; }
 
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .project-card {
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #374151;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        .project-card h3 { color: #38bdf8; margin-top: 0; }
+        .project-card p { line-height: 1.6; color: #d1d5db; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+    <h1 class="page-title">All Projects</h1>
+
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Personal Portfolio PWA</h3>
+            <p>A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.</p>
+        </div>
+        <div class="project-card">
+            <h3>Cafeteria Management System</h3>
+            <p>A management system project that optimizes daily cafeteria operations through efficient and structured programming.</p>
+        </div>
+        <div class="project-card">
+            <h3>TiltGuard - Anti-Theft Tilt Detection System</h3>
+            <p>Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.</p>
+        </div>
+        <div class="project-card">
+            <h3>Automatic Sensor-Based Dustbin</h3>
+            <p>An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.</p>
+        </div>
+        <div class="project-card">
+            <h3>Student Management System</h3>
+            <p>Centralized Student Data Management, Efficient Record Handling, Automation of Administrative Tasks, Data Accuracy and Consistency, User-Friendly Interface, Secure Data Storage.</p>
+        </div>
+        <div class="project-card">
+            <h3>Generative AI Explorations</h3>
+            <p>Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
