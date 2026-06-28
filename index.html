@@ -6,6 +6,7 @@
   <title>Anmol Gupta | Portfolio</title>
   
   <link rel="icon" type="image/png" href="photo.png">
+
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0f172a">
   
@@ -207,10 +208,10 @@
       text-shadow: 0 0 15px rgba(192, 38, 211, 0.7); 
     }
 
-    /* --- MASONRY LAYOUT UPDATES --- */
     .grid {
-      column-count: 3;
-      column-gap: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
     .card {
@@ -218,10 +219,6 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 22px;
-      margin-bottom: 18px;
-      break-inside: avoid;
-      display: inline-block;
-      width: 100%;
       transition: 0.3s;
     }
     
@@ -613,10 +610,10 @@
       }
     }
     
+    /* --- MASONRY LAYOUT FOR SKILLS SECTION ONLY --- */
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1.5fr); 
-      gap: 20px;
+      column-count: 3;
+      column-gap: 20px;
     }
     
     .skill-card {
@@ -627,6 +624,8 @@
       transition: 0.3s;
       display: flex;
       flex-direction: column;
+      break-inside: avoid; /* Prevents cards from splitting across columns */
+      margin-bottom: 20px; /* Adds vertical spacing between stacked cards */
     }
     
     .skill-card:hover {
@@ -732,16 +731,18 @@
   transform: translateY(-2px);
 }
 
-    /* --- RESPONSIVE UPDATES FOR MASONRY LAYOUT --- */
     @media (max-width: 900px) {
       .grid {
-        column-count: 2;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .skills-grid {
+        column-count: 2; /* Smoothly adapt the masonry layout */
       }
     }
 
     @media (max-width: 800px) {
       .skills-grid {
-        grid-template-columns: 1fr;
+        column-count: 1; /* Masonry becomes a single column on mobile */
       }
 
       .hero-grid {
@@ -790,7 +791,7 @@
     
     @media (max-width: 600px) {
       .grid {
-        column-count: 1;
+        grid-template-columns: 1fr;
       }
     }
   </style>
