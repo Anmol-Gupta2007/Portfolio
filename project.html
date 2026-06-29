@@ -45,9 +45,9 @@
         }
         .project-card:hover { transform: translateY(-5px); border-color:#fbbf24; }
         .project-card h3 { color: #fbbf24; margin-top: 10px; margin-bottom: 10px; }
-        .project-card p { line-height: 1.6; color: #d1d5db; flex-grow: 1; }
+        .project-card p { line-height: 1.6; color: #d1d5db; flex-grow: 1; margin-bottom: 0;}
         
-        /* --- New UI Elements --- */
+        /* --- Badge Styling --- */
         .badge {
             background: rgba(251, 191, 36, 0.2);
             color: #fbbf24;
@@ -59,27 +59,6 @@
             align-self: flex-start;
             border: 1px solid #fbbf24;
         }
-
-        .controls {
-            margin-top: 15px;
-            display: flex;
-            justify-content: flex-end;
-            border-top: 1px solid #374151;
-            padding-top: 15px;
-        }
-
-        .feature-btn {
-            background: transparent;
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-        .feature-btn:hover { background: rgba(56, 189, 248, 0.1); }
-        .feature-btn.active { background: #38bdf8; color: #020617; }
     </style>
 </head>
 <body>
@@ -102,111 +81,82 @@
 </div>
 
 <script>
-    // 1. The Central Source of Truth for your Projects
-    // To add a new project in the future, just add it to this list!
+    // ==========================================
+    // 🛠️ PROJECT MANAGEMENT AREA
+    // To feature a project, just change isFeatured to true!
+    // ==========================================
     const projectsData = [
         {
-            id: 'p1',
             title: 'Personal Portfolio PWA',
-            desc: 'A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.'
+            desc: 'A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.',
+            isFeatured: true 
         },
         {
-            id: 'p2',
             title: 'Cafeteria Management System',
-            desc: 'A management system project that optimizes daily cafeteria operations through efficient and structured programming.'
+            desc: 'A management system project that optimizes daily cafeteria operations through efficient and structured programming.',
+            isFeatured: false
         },
         {
-            id: 'p3',
             title: 'TiltGuard - Anti-Theft Tilt Detection System',
-            desc: 'Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.'
+            desc: 'Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.',
+            isFeatured: true
         },
         {
-            id: 'p4',
             title: 'Automatic Sensor-Based Dustbin',
-            desc: 'An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.'
+            desc: 'An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.',
+            isFeatured: false
         },
         {
-            id: 'p5',
             title: 'Student Management System',
-            desc: 'Centralized Student Data Management, Efficient Record Handling, Automation of Administrative Tasks, Data Accuracy and Consistency, User-Friendly Interface, Secure Data Storage.'
+            desc: 'Centralized Student Data Management, Efficient Record Handling, Automation of Administrative Tasks, Data Accuracy and Consistency, User-Friendly Interface, Secure Data Storage.',
+            isFeatured: false
         },
         {
-            id: 'p6',
             title: 'Generative AI Explorations',
-            desc: 'Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.'
+            desc: 'Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.',
+            isFeatured: true
         }
     ];
 
-    // 2. Get saved featured projects from Local Storage (or start empty)
-    let featuredProjectIds = JSON.parse(localStorage.getItem('myFeaturedProjects')) || [];
-
-    // 3. Function to build the HTML for a single card
-    function createCardHTML(project, isFeatured) {
-        const badgeHTML = isFeatured ? `<span class="badge">⭐ Featured</span>` : '';
-        const btnClass = isFeatured ? 'feature-btn active' : 'feature-btn';
-        const btnText = isFeatured ? '★ Unfeature' : '☆ Feature';
-
+    // ==========================================
+    // ⚙️ THE ENGINE (You don't need to touch this part)
+    // ==========================================
+    function createCardHTML(project) {
+        const badgeHTML = project.isFeatured ? `<span class="badge">⭐ Featured</span>` : '';
         return `
             <div class="project-card">
                 ${badgeHTML}
                 <h3>${project.title}</h3>
                 <p>${project.desc}</p>
-                <div class="controls">
-                    <button class="${btnClass}" onclick="toggleFeature('${project.id}')">${btnText}</button>
-                </div>
             </div>
         `;
     }
 
-    // 4. Function to render everything to the screen
     function renderProjects() {
         const allGrid = document.getElementById('all-grid');
         const featuredGrid = document.getElementById('featured-grid');
         const featuredContainer = document.getElementById('featured-container');
 
-        // Clear current grids
-        allGrid.innerHTML = '';
-        featuredGrid.innerHTML = '';
-
         let featuredCount = 0;
 
-        // Loop through all projects and place them in the correct grids
         projectsData.forEach(project => {
-            const isFeatured = featuredProjectIds.includes(project.id);
-            
-            // Always add to "All Projects"
-            allGrid.innerHTML += createCardHTML(project, isFeatured);
+            // Add to "All Projects" grid
+            allGrid.innerHTML += createCardHTML(project);
 
-            // If featured, also add to "Featured Projects"
-            if (isFeatured) {
-                featuredGrid.innerHTML += createCardHTML(project, isFeatured);
+            // If featured, also add to "Featured Projects" grid
+            if (project.isFeatured) {
+                featuredGrid.innerHTML += createCardHTML(project);
                 featuredCount++;
             }
         });
 
-        // Hide the Featured section entirely if there are no featured projects
+        // Hide the Featured section completely if 0 projects are featured
         if (featuredCount > 0) {
             featuredContainer.style.display = 'block';
-        } else {
-            featuredContainer.style.display = 'none';
         }
     }
 
-    // 5. Function to handle the button click
-    function toggleFeature(projectId) {
-        // If it's already featured, remove it. If it isn't, add it.
-        if (featuredProjectIds.includes(projectId)) {
-            featuredProjectIds = featuredProjectIds.filter(id => id !== projectId);
-        } else {
-            featuredProjectIds.push(projectId);
-        }
-
-        // Save the new list to the browser's memory and re-render
-        localStorage.setItem('myFeaturedProjects', JSON.stringify(featuredProjectIds));
-        renderProjects();
-    }
-
-    // Initial render when the page loads
+    // Run the engine when the page loads
     document.addEventListener('DOMContentLoaded', renderProjects);
 
 </script>
