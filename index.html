@@ -1405,7 +1405,11 @@
     
 <section id="certification">
     <div class="container">
-        <h2 class="section-title">Certifications</h2>
+        
+        <div class="section-header">
+          <h2 class="section-title">Certifications</h2>
+          <a href="certifications.html" class="view-all-link">ALL CERTIFICATIONS &rarr;</a>
+        </div>
         
         <div class="grid" id="all-cert-grid"></div>
     </div>
@@ -1439,7 +1443,8 @@
     });
 }
     
-    
+document.addEventListener('DOMContentLoaded', renderCerts);
+</script>    
 
 <section id="contact">
       <div class="container">
