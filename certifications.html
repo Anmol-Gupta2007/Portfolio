@@ -14,7 +14,7 @@
       --card: #111827;
       --text: #e5e7eb;
       --border: #1f2937;
-      --gold: #fbbf24; /* Golden yellow for the titles */
+      --gold: #fbbf24; 
       --accent: #38bdf8;
     }
 
@@ -37,7 +37,6 @@
       padding: 40px 0;
     }
 
-    /* --- BACK BUTTON STYLING --- */
     .back-btn {
       display: inline-block;
       margin-bottom: 25px;
@@ -67,7 +66,6 @@
       padding-bottom: 10px;
     }
 
-    /* --- 3-COLUMN GRID LAYOUT (Used for both grids now) --- */
     .grid, .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -113,12 +111,12 @@
       transform: scale(1.02);
     }
 
-    /* --- GALLERY IMAGE STYLING (Matched size) --- */
+    /* --- GALLERY IMAGE STYLING --- */
     .cert-img-wrapper {
       background: rgba(17, 24, 39, 0.92);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 15px; /* Gives it a nice card-like padding */
+      padding: 15px; 
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
@@ -139,16 +137,15 @@
       object-fit: cover;
     }
 
-    /* --- RESPONSIVE DESIGN --- */
     @media (max-width: 900px) {
       .grid, .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 600px) {
       .grid, .gallery-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -158,62 +155,111 @@
   <div class="container">
     
     <a href="index.html" class="back-btn">← Back to Portfolio</a>
-    
     <h1 class="page-title">All Certifications</h1>
     
-    <div class="grid">
-      
-      <div class="cert-card">
-        <h3>Generative AI Foundations</h3>
-        <img src="Image/cert-genai.jpg" alt="Generative AI Foundations" loading="lazy">
-      </div>
+    <div id="featured-container" style="display: none;">
+        <div class="grid" id="featured-grid"></div>
+    </div> 
 
-      <div class="cert-card">
-        <h3>TCS iON Masterclasses</h3>
-        <img src="Image/cert-tcs.jpg" alt="TCS iON Masterclasses" loading="lazy">
-      </div>
-
-      <div class="cert-card">
-        <h3>Power BI Specialization</h3>
-        <img src="Image/cert-powerbi.jpg" alt="Power BI Specialization" loading="lazy">
-      </div>
-
-      <div class="cert-card">
-        <h3>Wadhwani Skilling</h3>
-        <img src="Image/cert-wadhwani.jpg" alt="Wadhwani Skilling" loading="lazy">
-      </div>
-
-      <div class="cert-card">
-        <h3>Google Cloud Computing Basics</h3>
-        <img src="Image/cert-gcp.jpg" alt="Google Cloud Computing Basics" loading="lazy">
-      </div>
-
-      <div class="cert-card">
-        <h3>Python Data Structures</h3>
-        <img src="Image/cert-python.jpg" alt="Python Data Structures" loading="lazy">
-      </div>
-      
-    </div> <h2 class="section-heading">Certificate Gallery</h2>
-    
-    <div class="gallery-grid">
-      
-      <div class="cert-img-wrapper">
-        <img src="Image/cert1.jpg" alt="Certificate 1" class="cert-img" loading="lazy">
-      </div>
-
-      <div class="cert-img-wrapper">
-        <img src="Image/cert2.jpg" alt="Certificate 2" class="cert-img" loading="lazy">
-      </div>
-
-      <div class="cert-img-wrapper">
-        <img src="Image/cert3.jpg" alt="Certificate 3" class="cert-img" loading="lazy">
-      </div>
-
-      </div>
+    <h2 class="section-heading">Certificate Gallery</h2>
+    <div class="gallery-grid" id="gallery-grid"></div>
 
   </div>
 
+  <script>
+    // ==========================================
+    // 🛠️ CERTIFICATE MANAGEMENT AREA
+    // Change isFeatured to true to promote it to the top section!
+    // ==========================================
+    const certData = [
+        {
+            title: 'Generative AI Foundations',
+            imgSrc: 'Image/cert-genai.jpg',
+            isFeatured: true
+        },
+        {
+            title: 'TCS iON Masterclasses',
+            imgSrc: 'Image/cert-tcs.jpg',
+            isFeatured: true
+        },
+        {
+            title: 'Power BI Specialization',
+            imgSrc: 'Image/cert-powerbi.jpg',
+            isFeatured: true
+        },
+        {
+            title: 'Wadhwani Skilling',
+            imgSrc: 'Image/cert-wadhwani.jpg',
+            isFeatured: true
+        },
+        {
+            title: 'Google Cloud Computing Basics',
+            imgSrc: 'Image/cert-gcp.jpg',
+            isFeatured: true
+        },
+        {
+            title: 'Python Data Structures',
+            imgSrc: 'Image/cert-python.jpg',
+            isFeatured: true
+        },
+        // --- Add your 50+ unfeatured certificates here ---
+        {
+            title: 'Certificate 1',
+            imgSrc: 'Image/cert1.jpg',
+            isFeatured: false
+        },
+        {
+            title: 'Certificate 2',
+            imgSrc: 'Image/cert2.jpg',
+            isFeatured: false
+        },
+        {
+            title: 'Certificate 3',
+            imgSrc: 'Image/cert3.jpg',
+            isFeatured: false
+        }
+    ];
+
+    // ==========================================
+    // ⚙️ THE ENGINE
+    // ==========================================
+    function renderCertifications() {
+        const featuredGrid = document.getElementById('featured-grid');
+        const galleryGrid = document.getElementById('gallery-grid');
+        const featuredContainer = document.getElementById('featured-container');
+
+        let featuredCount = 0;
+
+        certData.forEach(cert => {
+            // 1. Add EVERY certificate to the Gallery Grid
+            galleryGrid.innerHTML += `
+              <div class="cert-img-wrapper">
+                <img src="${cert.imgSrc}" alt="${cert.title}" class="cert-img" loading="lazy">
+              </div>
+            `;
+
+            // 2. If it's featured, ALSO build the fancy card in the Featured Grid
+            if (cert.isFeatured) {
+                featuredGrid.innerHTML += `
+                  <div class="cert-card">
+                    <h3>${cert.title}</h3>
+                    <img src="${cert.imgSrc}" alt="${cert.title}" loading="lazy">
+                  </div>
+                `;
+                featuredCount++;
+            }
+        });
+
+        // Hide the top section if no certificates are marked as featured
+        if (featuredCount > 0) {
+            featuredContainer.style.display = 'block';
+        }
+    }
+
+    // Run when page loads
+    document.addEventListener('DOMContentLoaded', renderCertifications);
+  </script>
+
   <script src="favicon.js"></script>
-  
 </body>
 </html>
