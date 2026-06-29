@@ -26,7 +26,8 @@
         }
         .back-btn:hover { color: white; }
         
-        .page-title { font-size: 2.5rem; margin-bottom: 40px; }
+        .page-title { font-size: 2.5rem; margin-bottom: 20px; }
+        .section-title { font-size: 1.8rem; margin: 40px 0 20px; border-bottom: 1px solid #374151; padding-bottom: 10px; color: #38bdf8; }
 
         .projects-grid {
             display: grid;
@@ -39,47 +40,176 @@
             border-radius: 16px;
             border: 1px solid #374151;
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
         .project-card:hover { transform: translateY(-5px); border-color:#fbbf24; }
-        .project-card h3 { color: #fbbf24; margin-top: 0; }
-        .project-card p { line-height: 1.6; color: #d1d5db; }
+        .project-card h3 { color: #fbbf24; margin-top: 10px; margin-bottom: 10px; }
+        .project-card p { line-height: 1.6; color: #d1d5db; flex-grow: 1; }
+        
+        /* --- New UI Elements --- */
+        .badge {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-block;
+            align-self: flex-start;
+            border: 1px solid #fbbf24;
+        }
+
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 1px solid #374151;
+            padding-top: 15px;
+        }
+
+        .feature-btn {
+            background: transparent;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .feature-btn:hover { background: rgba(56, 189, 248, 0.1); }
+        .feature-btn.active { background: #38bdf8; color: #020617; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <a href="index.html" class="back-btn">← Back to Portfolio</a>
-    <h1 class="page-title">All Projects</h1>
+    
+    <h1 class="page-title">Projects</h1>
 
-    <div class="projects-grid">
-        <div class="project-card">
-            <h3>Personal Portfolio PWA</h3>
-            <p>A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.</p>
-        </div>
-        <div class="project-card">
-            <h3>Cafeteria Management System</h3>
-            <p>A management system project that optimizes daily cafeteria operations through efficient and structured programming.</p>
-        </div>
-        <div class="project-card">
-            <h3>TiltGuard - Anti-Theft Tilt Detection System</h3>
-            <p>Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.</p>
-        </div>
-        <div class="project-card">
-            <h3>Automatic Sensor-Based Dustbin</h3>
-            <p>An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.</p>
-        </div>
-        <div class="project-card">
-            <h3>Student Management System</h3>
-            <p>Centralized Student Data Management, Efficient Record Handling, Automation of Administrative Tasks, Data Accuracy and Consistency, User-Friendly Interface, Secure Data Storage.</p>
-        </div>
-        <div class="project-card">
-            <h3>Generative AI Explorations</h3>
-            <p>Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.</p>
-        </div>
+    <!-- Dynamic Featured Projects Section -->
+    <div id="featured-container" style="display: none;">
+        <h2 class="section-title">⭐ Featured Projects</h2>
+        <div class="projects-grid" id="featured-grid"></div>
     </div>
+
+    <!-- Dynamic All Projects Section -->
+    <h2 class="section-title">All Projects</h2>
+    <div class="projects-grid" id="all-grid"></div>
+
 </div>
 
+<script>
+    // 1. The Central Source of Truth for your Projects
+    // To add a new project in the future, just add it to this list!
+    const projectsData = [
+        {
+            id: 'p1',
+            title: 'Personal Portfolio PWA',
+            desc: 'A fully responsive Progressive Web App built with HTML, CSS, and JS, featuring dynamic components and automated network-first cache updates.'
+        },
+        {
+            id: 'p2',
+            title: 'Cafeteria Management System',
+            desc: 'A management system project that optimizes daily cafeteria operations through efficient and structured programming.'
+        },
+        {
+            id: 'p3',
+            title: 'TiltGuard - Anti-Theft Tilt Detection System',
+            desc: 'Developed a smart vehicle security prototype that detects unauthorized tilting or movement using a tilt sensor and immediately triggers an alert.'
+        },
+        {
+            id: 'p4',
+            title: 'Automatic Sensor-Based Dustbin',
+            desc: 'An embedded project idea focused on automation using sensors to detect and open a dustbin without manual contact.'
+        },
+        {
+            id: 'p5',
+            title: 'Student Management System',
+            desc: 'Centralized Student Data Management, Efficient Record Handling, Automation of Administrative Tasks, Data Accuracy and Consistency, User-Friendly Interface, Secure Data Storage.'
+        },
+        {
+            id: 'p6',
+            title: 'Generative AI Explorations',
+            desc: 'Collaborative development from events like Graph-E-Thon 3.0 and ET AI Hackathon 2.0, focusing on rapid prototyping and innovative problem-solving.'
+        }
+    ];
+
+    // 2. Get saved featured projects from Local Storage (or start empty)
+    let featuredProjectIds = JSON.parse(localStorage.getItem('myFeaturedProjects')) || [];
+
+    // 3. Function to build the HTML for a single card
+    function createCardHTML(project, isFeatured) {
+        const badgeHTML = isFeatured ? `<span class="badge">⭐ Featured</span>` : '';
+        const btnClass = isFeatured ? 'feature-btn active' : 'feature-btn';
+        const btnText = isFeatured ? '★ Unfeature' : '☆ Feature';
+
+        return `
+            <div class="project-card">
+                ${badgeHTML}
+                <h3>${project.title}</h3>
+                <p>${project.desc}</p>
+                <div class="controls">
+                    <button class="${btnClass}" onclick="toggleFeature('${project.id}')">${btnText}</button>
+                </div>
+            </div>
+        `;
+    }
+
+    // 4. Function to render everything to the screen
+    function renderProjects() {
+        const allGrid = document.getElementById('all-grid');
+        const featuredGrid = document.getElementById('featured-grid');
+        const featuredContainer = document.getElementById('featured-container');
+
+        // Clear current grids
+        allGrid.innerHTML = '';
+        featuredGrid.innerHTML = '';
+
+        let featuredCount = 0;
+
+        // Loop through all projects and place them in the correct grids
+        projectsData.forEach(project => {
+            const isFeatured = featuredProjectIds.includes(project.id);
+            
+            // Always add to "All Projects"
+            allGrid.innerHTML += createCardHTML(project, isFeatured);
+
+            // If featured, also add to "Featured Projects"
+            if (isFeatured) {
+                featuredGrid.innerHTML += createCardHTML(project, isFeatured);
+                featuredCount++;
+            }
+        });
+
+        // Hide the Featured section entirely if there are no featured projects
+        if (featuredCount > 0) {
+            featuredContainer.style.display = 'block';
+        } else {
+            featuredContainer.style.display = 'none';
+        }
+    }
+
+    // 5. Function to handle the button click
+    function toggleFeature(projectId) {
+        // If it's already featured, remove it. If it isn't, add it.
+        if (featuredProjectIds.includes(projectId)) {
+            featuredProjectIds = featuredProjectIds.filter(id => id !== projectId);
+        } else {
+            featuredProjectIds.push(projectId);
+        }
+
+        // Save the new list to the browser's memory and re-render
+        localStorage.setItem('myFeaturedProjects', JSON.stringify(featuredProjectIds));
+        renderProjects();
+    }
+
+    // Initial render when the page loads
+    document.addEventListener('DOMContentLoaded', renderProjects);
+
+</script>
 <script src="favicon.js"></script>
-    
 </body>
 </html>
