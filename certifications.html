@@ -13,10 +13,9 @@
       --bg: #0f172a;
       --card: #111827;
       --text: #e5e7eb;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
       --border: #1f2937;
-      --neon-purple: #c026d3; 
+      --gold: #fbbf24; /* Golden yellow for the titles */
+      --accent: #38bdf8;
     }
 
     * {
@@ -38,120 +37,70 @@
       padding: 40px 0;
     }
 
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 25px;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-    }
-
-    .back-btn:hover {
-      color: white;
-    }
-
     .page-title {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
       color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
+      font-weight: 700;
     }
 
-    .page-title::before {
-      content: '>';
-      color: var(--neon-purple);
-      margin-right: 12px;
-      font-family: 'Courier New', Courier, monospace; 
-      font-weight: 900;
-      font-size: 1.4em;
-      line-height: 0.8;
-      text-shadow: 0 0 15px rgba(192, 38, 211, 0.7); 
-    }
-
-    h2.section-heading {
-      color: white;
-      margin: 40px 0 20px;
-      font-size: 1.8rem;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 10px;
-    }
-
-    /* --- TEXT CARDS GRID --- */
-    .text-grid {
+    /* --- 3-COLUMN GRID LAYOUT --- */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-bottom: 50px;
     }
 
-    .card {
+    /* --- CARD STYLING --- */
+    .cert-card {
       background: rgba(17, 24, 39, 0.92);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 12px;
       padding: 24px;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* Spaces out the title and the image */
     }
     
-    .card:hover {
+    .cert-card:hover {
       border-color: var(--accent);
       transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
     }
 
-    .card h3 {
-      margin-bottom: 15px;
-      color: white;
-      font-size: 1.25rem;
+    .cert-card h3 {
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.4;
     }
 
-    .card p {
-      color: var(--muted);
-      text-align: justify;
-    }
-
-    /* --- IMAGE GALLERY GRID (For 50+ Certs) --- */
-    .gallery-grid {
-      display: grid;
-      /* Auto-fill creates as many columns as will fit based on 250px minimum width */
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-    }
-
-    .cert-img-wrapper {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid var(--border);
-      background: #111827;
-      aspect-ratio: 4 / 3; /* Keeps images uniformly proportioned */
-      transition: all 0.3s ease;
-    }
-
-    .cert-img-wrapper:hover {
-      border-color: var(--accent);
-      transform: scale(1.03);
-      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15);
-      z-index: 2;
-    }
-
-    .cert-img {
+    /* --- IMAGE STYLING INSIDE THE CARD --- */
+    .cert-card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ensures the image fills the box without stretching */
-      display: block;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
-    @media (max-width: 768px) {
-      .text-grid {
-        grid-template-columns: 1fr;
+    .cert-card img:hover {
+      transform: scale(1.02);
+    }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
       }
-      .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
       }
     }
   </style>
@@ -159,45 +108,48 @@
 <body>
 
   <div class="container">
-    <a href="index.html" class="back-btn">← Back to Portfolio</a>
     
-    <h1 class="page-title">Certifications</h1>
-
-    <h2 class="section-heading">Featured Highlights</h2>
+    <h1 class="page-title">All Certifications</h1>
     
-    <!-- The content requested from the image -->
-    <div class="text-grid">
-      <div class="card">
+    <div class="grid">
+      
+      <!-- FEATURED CERTIFICATE 1 -->
+      <div class="cert-card">
         <h3>Generative AI Foundations</h3>
-        <p>Completed comprehensive certification through upGrad, focusing on the core principles, models, and real-world applications of Generative AI.</p>
+        <img src="Image/cert-genai.jpg" alt="Generative AI Foundations" loading="lazy">
       </div>
 
-      <div class="card">
+      <!-- FEATURED CERTIFICATE 2 -->
+      <div class="cert-card">
         <h3>TCS iON Masterclasses</h3>
-        <p>Completed specialized masterclass modules to enhance industry-relevant technical knowledge and professional aptitude.</p>
+        <img src="Image/cert-tcs.jpg" alt="TCS iON Masterclasses" loading="lazy">
       </div>
 
-      <div class="card">
+      <!-- FEATURED CERTIFICATE 3 -->
+      <div class="cert-card">
         <h3>Power BI Specialization</h3>
-        <p>Gained practical skills in data analysis, visualization, and creating interactive dashboards using Microsoft Power BI.</p>
+        <img src="Image/cert-powerbi.jpg" alt="Power BI Specialization" loading="lazy">
       </div>
 
-      <div class="card">
+      <!-- FEATURED CERTIFICATE 4 -->
+      <div class="cert-card">
         <h3>Wadhwani Skilling</h3>
-        <p>Participated in professional skilling and development programs focused on core employability and 21st-century workplace skills.</p>
+        <img src="Image/cert-wadhwani.jpg" alt="Wadhwani Skilling" loading="lazy">
       </div>
 
-      <div class="card">
+      <!-- FEATURED CERTIFICATE 5 -->
+      <div class="cert-card">
         <h3>Google Cloud Computing Basics</h3>
-        <p>Explored cloud infrastructure, scaling applications, and managing data effectively within the Google Cloud ecosystem.</p>
+        <img src="Image/cert-gcp.jpg" alt="Google Cloud Computing Basics" loading="lazy">
       </div>
 
-      <div class="card">
+      <!-- FEATURED CERTIFICATE 6 -->
+      <div class="cert-card">
         <h3>Python Data Structures</h3>
-        <p>Advanced study in Python programming, focusing on efficient data handling, algorithms, and logical problem solving.</p>
+        <img src="Image/cert-python.jpg" alt="Python Data Structures" loading="lazy">
       </div>
-    </div>
 
+    
     <h2 class="section-heading">Certificate Gallery</h2>
     
     <!-- Gallery Grid for your 50+ Images -->
