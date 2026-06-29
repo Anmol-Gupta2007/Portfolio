@@ -1402,54 +1402,41 @@
 </section>
 
     
- <section id="certification">
+<section id="certification">
     <div class="container">
         <h2 class="section-title">Certifications</h2>
         
-        <div id="featured-cert-container" style="display: none;">
-            <h3 style="color: white; margin-bottom: 20px;">⭐ Featured Certifications</h3>
-            <div class="grid" id="featured-cert-grid"></div>
-        </div>
-
-        <h3 style="color: white; margin: 40px 0 20px;">All Certifications</h3>
         <div class="grid" id="all-cert-grid"></div>
     </div>
 </section>
 
     <script>
     const certData = [
-        { title: 'Generative AI Foundations', imgSrc: 'Image/cert-genai.jpg', isFeatured: true },
-        { title: 'TCS iON Masterclasses', imgSrc: 'Image/cert-tcs.jpg', isFeatured: true },
-        { title: 'Power BI Specialization', imgSrc: 'Image/cert-powerbi.jpg', isFeatured: true },
-        { title: 'Wadhwani Skilling', imgSrc: 'Image/cert-wadhwani.jpg', isFeatured: false },
-        { title: 'Google Cloud Computing', imgSrc: 'Image/cert-gcp.jpg', isFeatured: false },
-        { title: 'Python Data Structures', imgSrc: 'Image/cert-python.jpg', isFeatured: false }
-    ];
+    { title: 'Generative AI Foundations', imgSrc: 'Image/cert-genai.jpg', isFeatured: true },
+    { title: 'TCS iON Masterclasses', imgSrc: 'Image/cert-tcs.jpg', isFeatured: true },
+    { title: 'Power BI Specialization', imgSrc: 'Image/cert-powerbi.jpg', isFeatured: true },
+    { title: 'Wadhwani Skilling', imgSrc: 'Image/cert-wadhwani.jpg', isFeatured: true },
+    { title: 'Google Cloud Computing', imgSrc: 'Image/cert-gcp.jpg', isFeatured: true },
+    { title: 'Python Data Structures', imgSrc: 'Image/cert-python.jpg', isFeatured: true }
+];
 
-    function renderCerts() {
-        const allGrid = document.getElementById('all-cert-grid');
-        const featGrid = document.getElementById('featured-cert-grid');
-        const featCont = document.getElementById('featured-cert-container');
-        let featCount = 0;
+   function renderCerts() {
+    const allGrid = document.getElementById('all-cert-grid');
+    
+    // Clear the grid first
+    allGrid.innerHTML = '';
 
-        certData.forEach(c => {
-            const cardHTML = `
-                <div class="card">
-                    ${c.isFeatured ? '<span class="badge">⭐ Featured</span>' : ''}
-                    <h3>${c.title}</h3>
-                    <img src="${c.imgSrc}" alt="${c.title}">
-                </div>
-            `;
-            allGrid.innerHTML += cardHTML;
-            if (c.isFeatured) {
-                featGrid.innerHTML += cardHTML;
-                featCount++;
-            }
-        });
-        if (featCount > 0) featCont.style.display = 'block';
-    }
-    document.addEventListener('DOMContentLoaded', renderCerts);
-</script>
+    certData.forEach(c => {
+        // Build the card WITHOUT the badge HTML
+        const cardHTML = `
+            <div class="card">
+                <h3>${c.title}</h3>
+                <img src="${c.imgSrc}" alt="${c.title}">
+            </div>
+        `;
+        allGrid.innerHTML += cardHTML;
+    });
+}
     
     
 
