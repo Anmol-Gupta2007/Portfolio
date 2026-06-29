@@ -1,181 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anmol Gupta | Certifications</title>
-  
-  <link rel="icon" type="image/png" href="Image/photo.png">
-  <meta name="theme-color" content="#0f172a">
-  
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --text: #e5e7eb;
-      --border: #1f2937;
-      --gold: #fbbf24; 
-      --accent: #38bdf8;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #020617, #0f172a);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-      padding: 40px 0;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 25px;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 20px;
-      transition: color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      color: white;
-    }
-
-    .page-title {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      color: #ffffff;
-      font-weight: 700;
-    }
-
-    .section-heading {
-      color: white;
-      margin: 40px 0 20px;
-      font-size: 1.8rem;
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 10px;
-    }
-
-    .grid, .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 50px;
-    }
-
-    /* --- FEATURED CARD STYLING --- */
-    .cert-card {
-      background: rgba(17, 24, 39, 0.92);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol Gupta | Certifications</title>
     
-    .cert-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
-    }
+    <link rel="icon" type="image/png" href="Image/photo.png">
+    <meta name="theme-color" content="#0f172a">
+    
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1f2937;
+            --text: #e5e7eb;
+            --border: #374151;
+            --gold: #fbbf24; 
+            --accent: #38bdf8;
+        }
 
-    .cert-card h3 {
-      color: var(--gold);
-      font-size: 1.15rem;
-      font-weight: 600;
-      line-height: 1.4;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg,#020617,#0f172a);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+        }
 
-    .cert-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
+        .container {
+            width: min(1200px, 100%);
+            margin: auto;
+        }
 
-    .cert-card img:hover {
-      transform: scale(1.02);
-    }
+        /* --- BACK BUTTON --- */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            transition: 0.3s ease;
+        }
+        
+        .back-btn:hover { 
+            color: white; 
+        }
+        
+        /* --- HEADINGS --- */
+        .page-title { 
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            color: white;
+        }
 
-    /* --- GALLERY IMAGE STYLING --- */
-    .cert-img-wrapper {
-      background: rgba(17, 24, 39, 0.92);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 15px; 
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .section-title { 
+            font-size: 1.8rem; 
+            margin: 40px 0 20px; 
+            border-bottom: 1px solid var(--border); 
+            padding-bottom: 10px; 
+            color: var(--accent); /* Blue text for sections */
+        }
 
-    .cert-img-wrapper:hover {
-      border-color: var(--accent);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
-    }
+        /* --- GRID LAYOUT --- */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
 
-    .cert-img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      object-fit: cover;
-    }
+        /* --- CARD STYLING --- */
+        .cert-card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cert-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--gold); 
+        }
 
-    @media (max-width: 900px) {
-      .grid, .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+        .cert-card h3 { 
+            color: var(--gold); 
+            margin-top: 15px; 
+            margin-bottom: 15px; 
+            font-size: 1.15rem;
+        }
 
-    @media (max-width: 600px) {
-      .grid, .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        /* --- IMAGE STYLING --- */
+        .cert-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card img:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- BADGE STYLING --- */
+        .badge {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--gold);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            display: inline-block;
+            align-self: flex-start; /* Keeps it tight to the text */
+            border: 1px solid rgba(251, 191, 36, 0.4);
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    
+<div class="container">
     <a href="index.html" class="back-btn">← Back to Portfolio</a>
-    <h1 class="page-title">All Certifications</h1>
     
+    <h1 class="page-title">Certifications</h1>
+
     <div id="featured-container" style="display: none;">
-        <div class="grid" id="featured-grid"></div>
-    </div> 
+        <h2 class="section-title">⭐ Featured Certifications</h2>
+        <div class="cert-grid" id="featured-grid"></div>
+    </div>
 
-    <h2 class="section-heading">Certificate Gallery</h2>
-    <div class="gallery-grid" id="gallery-grid"></div>
+    <h2 class="section-title">All Certifications</h2>
+    <div class="cert-grid" id="all-grid"></div>
 
-  </div>
+</div>
 
-  <script>
+<script>
     // ==========================================
     // 🛠️ CERTIFICATE MANAGEMENT AREA
-    // Change isFeatured to true to promote it to the top section!
+    // To feature a certificate, just change isFeatured to true!
     // ==========================================
     const certData = [
         {
             title: 'Generative AI Foundations',
             imgSrc: 'Image/cert-genai.jpg',
-            isFeatured: true
+            isFeatured: true 
         },
         {
             title: 'TCS iON Masterclasses',
@@ -190,76 +161,66 @@
         {
             title: 'Wadhwani Skilling',
             imgSrc: 'Image/cert-wadhwani.jpg',
-            isFeatured: true
+            isFeatured: false
         },
         {
             title: 'Google Cloud Computing Basics',
             imgSrc: 'Image/cert-gcp.jpg',
-            isFeatured: true
+            isFeatured: false
         },
         {
             title: 'Python Data Structures',
             imgSrc: 'Image/cert-python.jpg',
-            isFeatured: true
-        },
-        // --- Add your 50+ unfeatured certificates here ---
-        {
-            title: 'Certificate 1',
-            imgSrc: 'Image/cert1.jpg',
-            isFeatured: false
-        },
-        {
-            title: 'Certificate 2',
-            imgSrc: 'Image/cert2.jpg',
-            isFeatured: false
-        },
-        {
-            title: 'Certificate 3',
-            imgSrc: 'Image/cert3.jpg',
             isFeatured: false
         }
+        // Add your remaining 50+ certificates here by copy/pasting a block!
     ];
 
     // ==========================================
-    // ⚙️ THE ENGINE
+    // ⚙️ THE ENGINE 
     // ==========================================
+    function createCardHTML(cert) {
+        // If isFeatured is true, create the badge. Otherwise, leave it blank.
+        const badgeHTML = cert.isFeatured ? `<span class="badge">⭐ Featured</span>` : '';
+        
+        // Return the Card HTML, notice the <img> tag instead of the <p> tag!
+        return `
+            <div class="cert-card">
+                ${badgeHTML}
+                <h3>${cert.title}</h3>
+                <img src="${cert.imgSrc}" alt="${cert.title}" loading="lazy">
+            </div>
+        `;
+    }
+
     function renderCertifications() {
+        const allGrid = document.getElementById('all-grid');
         const featuredGrid = document.getElementById('featured-grid');
-        const galleryGrid = document.getElementById('gallery-grid');
         const featuredContainer = document.getElementById('featured-container');
 
         let featuredCount = 0;
 
         certData.forEach(cert => {
-            // 1. Add EVERY certificate to the Gallery Grid
-            galleryGrid.innerHTML += `
-              <div class="cert-img-wrapper">
-                <img src="${cert.imgSrc}" alt="${cert.title}" class="cert-img" loading="lazy">
-              </div>
-            `;
+            // Add to "All Certifications" grid
+            allGrid.innerHTML += createCardHTML(cert);
 
-            // 2. If it's featured, ALSO build the fancy card in the Featured Grid
+            // If featured, ALSO add to "Featured Certifications" grid
             if (cert.isFeatured) {
-                featuredGrid.innerHTML += `
-                  <div class="cert-card">
-                    <h3>${cert.title}</h3>
-                    <img src="${cert.imgSrc}" alt="${cert.title}" loading="lazy">
-                  </div>
-                `;
+                featuredGrid.innerHTML += createCardHTML(cert);
                 featuredCount++;
             }
         });
 
-        // Hide the top section if no certificates are marked as featured
+        // Hide the Featured section completely if 0 certificates are featured
         if (featuredCount > 0) {
             featuredContainer.style.display = 'block';
         }
     }
 
-    // Run when page loads
+    // Run the engine when the page loads
     document.addEventListener('DOMContentLoaded', renderCertifications);
-  </script>
 
-  <script src="favicon.js"></script>
+</script>
+<script src="favicon.js"></script>
 </body>
 </html>
