@@ -538,24 +538,8 @@
       margin-top: -50px; 
     }
 
-.rotating-ring {
-  position: absolute;
-  top: 0;           /* ADDED */
-  bottom: 0;        /* ADDED */
-  left: 0;          /* ADDED */
-  right: 0;         /* ADDED */
-  margin: auto;     /* ADDED */
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  border: 1px solid rgba(56, 189, 248, 0.1);
-  border-top: 3px solid var(--accent);
-  border-right: 3px solid #818cf8;
-  animation: rotateSpin 5s linear infinite;
-  box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
-}
 
-    <!--  
+ 
     .rotating-ring {
       position: absolute;
       width: 320px;
@@ -567,7 +551,7 @@
       animation: rotateSpin 5s linear infinite;
       box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
     }
--->
+
 
 
     
@@ -578,12 +562,14 @@
       height: 10px;
       background: var(--accent);
       border-radius: 50%;
-      top: 40px;
-      left: 40px;
+      top: 14.6%; 
+  left: 14.6%;
+  /* Pulls the dot perfectly onto the center of the border path */
+  transform: translate(-50%, -50%);
       box-shadow: 0 0 10px var(--accent);
     }
 
-     <!--
+  
     .inner-circle {
       width: 280px;
       height: 280px;
@@ -596,21 +582,6 @@
       box-shadow: inset 0 0 40px rgba(56, 189, 248, 0.05);
       border: 1px solid rgba(56, 189, 248, 0.2);
     }
- -->
-
-    .inner-circle {
-  position: relative; /* ADDED */
-  width: 280px;
-  height: 280px;
-  background: #020617;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  box-shadow: inset 0 0 40px rgba(56, 189, 248, 0.05);
-  border: 1px solid rgba(56, 189, 248, 0.2);
-}
 
 
    
