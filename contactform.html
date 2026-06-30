@@ -33,37 +33,35 @@
       padding: 20px;
     }
 
-    .form-box {
+    /* New container to hold both the button and the form */
+    .main-container {
       width: 100%;
       max-width: 550px;
+    }
+
+    .form-box {
+      width: 100%;
       background-color: var(--box-bg);
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.05);
-      position: relative; /* Added for proper internal spacing */
+      position: relative;
     }
 
-    /* --- NEW BACK LINK STYLES --- */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    /* The exact blue link styling from your other pages */
+    .back-btn {
+      display: inline-block;
       margin-bottom: 25px;
-      transition: color 0.3s ease, transform 0.3s ease;
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 20px;
     }
 
-    .back-link:hover {
-      color: var(--gradient-end);
-      transform: translateX(-4px); /* Slight slide animation on hover */
+    .back-btn:hover {
+      color: white;
     }
-    /* ---------------------------- */
 
     .form-group {
       margin-bottom: 24px;
@@ -138,41 +136,38 @@
 </head>
 <body>
 
-  <div class="form-box">
+  <div class="main-container">
     
-    <a href="index.html" class="back-link">
-      <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
-        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-      </svg>
-      Back to Portfolio
-    </a>
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
     
-    <form id="contact-form" name="google-sheet-form">
-      
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="John Doe" required>
-      </div>
+    <div class="form-box">
+      <form id="contact-form" name="google-sheet-form">
+        
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
 
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-      </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
 
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Hey Anmol, I wanted to reach out about..." required></textarea>
-      </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Hey Anmol, I wanted to reach out about..." required></textarea>
+        </div>
 
-      <button type="submit" class="submit-btn" id="submit-btn">
-        <span>Send Message</span>
-        <svg fill="#000000" viewBox="0 0 24 24" width="22" height="22">
-          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-        </svg>
-      </button>
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <span>Send Message</span>
+          <svg fill="#000000" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
 
-      <div id="status-msg">Message sent successfully!</div>
-    </form>
+        <div id="status-msg">Message sent successfully!</div>
+      </form>
+    </div>
   </div>
 
   <script>
