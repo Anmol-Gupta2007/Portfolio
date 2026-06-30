@@ -113,12 +113,39 @@ body {
     margin-bottom: 15px;
 }
 
-.offer-letter, .certificate-pdf {
+/* Styling for the Offer Letter */
+.offer-letter {
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Keeps the offer letter a reasonable size */
+    height: auto; /* Prevents downward stretching */
     border-radius: 12px;
     border: 3px solid #38bdf8;
     margin-top: 15px;
+}
+
+/* Grid layout for Certificates and LORs */
+.document-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Forces exactly 2 items per row */
+    gap: 15px; /* Adds space between the images */
+    margin-top: 15px;
+}
+
+/* Styling for the individual Certificates inside the grid */
+.certificate-pdf {
+    width: 100%;
+    height: 100%; /* Ensures they match height if slightly different */
+    object-fit: cover; /* Keeps aspect ratio perfect */
+    border-radius: 12px;
+    border: 3px solid #38bdf8;
+    box-sizing: border-box;
+}
+
+/* Mobile view: Drops back to 1 per row on small screens so they aren't squished */
+@media (max-width: 600px) {
+    .document-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .skills {
@@ -184,6 +211,7 @@ h3 {
                   <img src="Offer Letter/C Programming Offer Letter.jpg" class="offer-letter" alt="Internship Offer Letter">
 
                <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate C Programming Internship.jpg" class="certificate-pdf" alt="Internship Certificate">
 
                 <h3>Skills Gained</h3>
@@ -205,6 +233,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Python Programming Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Python Programming Internship.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -237,6 +266,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Data Analysis Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Data Analysis Cognifyz.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -257,6 +287,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Data Engineering Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Data Engineering Cognifyz.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -287,8 +318,9 @@ h3 {
                     Developing and training machine learning models, exploring neural networks, and implementing AI solutions for real-world problems.
                 </p>
                 <h3>Offer Letter</h3>
-                <img src="Offer Letter/Artificial Intelligence Offer Letter.jpg" class="offer-letter" height="700"></iframe>
+                <img src="Offer Letter/Artificial Intelligence Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate and LOR</h3>
+                <div class="document-grid">
                 <img src="Intern Certificates and LOR/Artificial Intelligence Internship Completion Certificate.jpg" class="certificate-pdf">
                 <img src="Intern Certificates and LOR/Artificial Intelligence Internship Certificate.jpg" class="certificate-pdf">
                 <img src="Intern Certificates and LOR/Artificial Intelligence Internship LOR.jpg" class="certificate-pdf">
@@ -311,6 +343,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Python Developer Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Python Developer Codec.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -331,6 +364,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Web Developer Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Web Developer Codec.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -363,6 +397,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/AI-Assisted Full Stack Web Development Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate AI Web Dev TBI.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -395,6 +430,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Python Programming Offer Letter SAM.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Python SamAI.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -415,6 +451,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Artificial Intelligence Offer Letter SAM.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate AI SamAI.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
@@ -447,6 +484,7 @@ h3 {
                 <h3>Offer Letter</h3>
                 <img src="Offer Letter/Generative AI Offer Letter.jpg" class="offer-letter">
                 <h3>Certificate</h3>
+                <div class="document-grid">
                 <img src="Certificate Generative AI Prodigy.jpg" class="certificate-pdf">
                 <h3>Skills Gained</h3>
                 <div class="skills">
